@@ -15,9 +15,9 @@ body {
 }
 
 .container {
-  width: 50%;
+  width: 90%;
+  max-width: 900px;
   border: 2px solid #2a2a44;
-  height: 50vh;
   padding: 50px;
   background-color: #1a1a2e;
   border-radius: 16px;
@@ -50,6 +50,9 @@ body {
 .profile-picture {
   border-radius: 10%;
   border: 2px solid #5f9ef0;
+  height: 275px;
+  width: auto;
+  object-fit: cover;
 }
 
 .name-job {
