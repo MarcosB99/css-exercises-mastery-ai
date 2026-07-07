@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <title>Restaurant Landing Page</title>
   </head>
   <body>
@@ -14,8 +17,8 @@
           <li><a href="#hero-section">Home</a></li>
           <li><a href="#about-section">About</a></li>
           <li><a href="#menu-section">Menu</a></li>
-          <li><a>Reservations</a></li>
-          <li><a>Contact</a></li>
+          <li><a href="#reservation-section">Reservations</a></li>
+          <li><a href="#contact-section">Contact</a></li>
         </ul>
       </nav>
       <button type="button" class="book-btn">Book a table</button>
@@ -33,7 +36,7 @@
         </div>
       </section>
       <section id="about-section">
-        <div class="right-side">
+        <div class="right-side-about-section">
           <h2 class="about-title">Our Story</h2>
           <p class="about-paragraph">
             Founded with a passion for traditional wood-fired cooking, Ember &
@@ -42,7 +45,7 @@
             flavors in a warm and welcoming atmosphere.
           </p>
         </div>
-        <div class="left-side">
+        <div class="left-side-about-section">
           <img
             class="about-image"
             src="./assets/about-image.png"
@@ -50,41 +53,152 @@
         </div>
       </section>
       <section id="menu-section">
-        <div class="card 1">
-          <img class="dish-image" src="./assets/dish-image-1.png" alt="" />
-          <p class="dish-title">Signature Ribeye</p>
-          <p class="dish-price">
-            <data value="38">$38</data>
-          </p>
-          <p class="dish-description">
-            Hand-cut ribeye grilled over oak wood, served with garlic mashed
-            potatoes and seasonal vegetables.
-          </p>
-          <button class="order-btn" type="button">Order now</button>
+        <h2 class="menu-title">Featured Dishes</h2>
+        <div class="menu-container">
+          <div class="card 1">
+            <img class="dish-image" src="./assets/dish-image-1.png" alt="" />
+            <p class="dish-title">Signature Ribeye</p>
+            <p class="dish-price">
+              <data value="38">$38</data>
+            </p>
+            <p class="dish-description">
+              Hand-cut ribeye grilled over oak wood, served with garlic mashed
+              potatoes and seasonal vegetables.
+            </p>
+            <button class="order-btn" type="button">Order now</button>
+          </div>
+          <div class="card 2">
+            <img class="dish-image" src="./assets/dish-image-2.png" alt="" />
+            <p class="dish-title">Fire-Roasted Salmon</p>
+            <p class="dish-price">
+              <data value="29">$29</data>
+            </p>
+            <p class="dish-description">
+              Fresh Atlantic salmon with lemon herb butter, roasted vegetables,
+              and wild rice.
+            </p>
+            <button class="order-btn" type="button">Order now</button>
+          </div>
+          <div class="card 3">
+            <img class="dish-image" src="./assets/dish-image-3.png" alt="" />
+            <p class="dish-title">Truffle Mushroom Pasta</p>
+            <p class="dish-price">
+              <data value="24">$24</data>
+            </p>
+            <p class="dish-description">
+              Fresh fettuccine tossed with wild mushrooms, parmesan, black
+              truffle cream, and herbs.
+            </p>
+            <button class="order-btn" type="button">Order now</button>
+          </div>
         </div>
-        <div class="card 2">
-          <img class="dish-image" src="./assets/dish-image-2.png" alt="" />
-          <p class="dish-title">Fire-Roasted Salmon</p>
-          <p class="dish-price">
-            <data value="29">$29</data>
-          </p>
-          <p class="dish-description">
-            Fresh Atlantic salmon with lemon herb butter, roasted vegetables,
-            and wild rice.
-          </p>
-          <button class="order-btn" type="button">Order now</button>
+      </section>
+      <section id="reservation-section">
+        <div class="left-side-reservation-section">
+          <form
+            action="https://sheets.google.com"
+            method="post"
+            class="reservation-form">
+            <h2 class="form-title">Reserve your table</h2>
+            <p class="form-description">
+              Enjoy an unforgettable dining experience. Reserve your table today
+              and let us prepare a meal you'll remember.
+            </p>
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter your name"
+              required />
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter your email"
+              required />
+            <label for="phone-number">Phone Number:</label>
+            <input
+              type="number"
+              name="phone-number"
+              id="phone-number"
+              placeholder="Enter your phone number"
+              required />
+            <label for="number-guests">Number of Guests</label>
+            <select id="number-guests" name="number-guests" required>
+              <option value="" disabled selected>
+                Select number of guests...
+              </option>
+              <option value="1">1 Guest</option>
+              <option value="2">2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5 Guests</option>
+              <option value="6">6+ Guests</option>
+            </select>
+            <label for="reservation-date">Reservation Date</label>
+            <input
+              type="date"
+              name="reservation-date"
+              id="reservation-date"
+              required />
+            <label for="preferred-time">Preferred Time</label>
+            <input
+              type="time"
+              name="preferred-time"
+              id="preferred-time"
+              min="12:00"
+              max="21:00"
+              required />
+            <label for="special-request"
+              >Let us know if you're celebrating a special occasion or have any
+              dietary preferences.</label
+            >
+            <textarea
+              name="special-request"
+              id="special-request"
+              rows="5"></textarea>
+            <input type="submit" value="Reserve Now" class="submit-form-btn" />
+          </form>
         </div>
-        <div class="card 3">
-          <img class="dish-image" src="./assets/dish-image-3.png" alt="" />
-          <p class="dish-title">Truffle Mushroom Pasta</p>
-          <p class="dish-price">
-            <data value="24">$24</data>
+        <div class="right-side-reservation-section">
+          <h3 class="right-side-reserv-title">Why Reserve With Us?</h3>
+          <ul class="right-side-reserv-ul">
+            <li>Premium locally sourced ingredients</li>
+            <li>Warm wood-fired dining experience</li>
+            <li>Private dining available</li>
+            <li>Friendly and attentive service</li>
+          </ul>
+        </div>
+      </section>
+      <section id="contact-section">
+        <div class="container-contact">
+          <h2 class="contact-title">Get in <span>Touch</span></h2>
+          <p class="contact-description">
+            Whether you're planning a romantic dinner, celebrating a special
+            occasion, or simply craving exceptional wood-fired cuisine, we'd
+            love to hear from you.
           </p>
-          <p class="dish-description">
-            Fresh fettuccine tossed with wild mushrooms, parmesan, black truffle
-            cream, and herbs.
-          </p>
-          <button class="order-btn" type="button">Order now</button>
+          <hr />
+          <div class="contact-info">
+            <address>
+              <div class="info-item">
+                <i class="fas fa-location-dot" aria-hidden="true"></i>
+                <span
+                  >245 Oak Street<br />
+                  Austin, TX 78701</span
+                >
+              </div>
+              <div class="info-item">
+                <i class="fas fa-phone" aria-hidden="true"></i>
+                <span>(512) 555-0187</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                <span>support@emberandoak.com</span>
+              </div>
+            </address>
+          </div>
         </div>
       </section>
     </main>
