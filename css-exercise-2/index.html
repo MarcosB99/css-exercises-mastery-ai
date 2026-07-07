@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Restaurant Landing Page</title>
+  </head>
+  <body>
+    <header>
+      <a href="./index.html" class="logo-text">Ember & Oak</a>
+      <nav id="navbar">
+        <ul class="nav-links">
+          <li><a href="#hero-section">Home</a></li>
+          <li><a href="#about-section">About</a></li>
+          <li><a href="#menu-section">Menu</a></li>
+          <li><a>Reservations</a></li>
+          <li><a>Contact</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="book-btn">Book a table</button>
+    </header>
+    <main>
+      <section id="hero-section">
+        <h1 class="rest-name">Experience the Art of Wood-Fired Dining</h1>
+        <p class="supporting-text">
+          Every dish is prepared over natural oak wood, bringing authentic
+          flavor to premium ingredients and unforgettable dining experiences.
+        </p>
+        <div class="cta-buttons">
+          <button class="book-btn">Reserve your table</button>
+          <button class="menu-btn">View Menu</button>
+        </div>
+      </section>
+      <section id="about-section">
+        <div class="right-side">
+          <h2 class="about-title">Our Story</h2>
+          <p class="about-paragraph">
+            Founded with a passion for traditional wood-fired cooking, Ember &
+            Oak combines locally sourced ingredients with timeless culinary
+            techniques. Every meal is prepared with care, delivering rich
+            flavors in a warm and welcoming atmosphere.
+          </p>
+        </div>
+        <div class="left-side">
+          <img
+            class="about-image"
+            src="./assets/about-image.png"
+            alt="Warm interior of Ember & Oak featuring a wood-fired oven, rustic décor, and a chef preparing fresh meals." />
+        </div>
+      </section>
+      <section id="menu-section">
+        <div class="card 1">
+          <img class="dish-image" src="./assets/dish-image-1.png" alt="" />
+          <p class="dish-title">Signature Ribeye</p>
+          <p class="dish-price">
+            <data value="38">$38</data>
+          </p>
+          <p class="dish-description">
+            Hand-cut ribeye grilled over oak wood, served with garlic mashed
+            potatoes and seasonal vegetables.
+          </p>
+          <button class="order-btn" type="button">Order now</button>
+        </div>
+        <div class="card 2">
+          <img class="dish-image" src="./assets/dish-image-2.png" alt="" />
+          <p class="dish-title">Fire-Roasted Salmon</p>
+          <p class="dish-price">
+            <data value="29">$29</data>
+          </p>
+          <p class="dish-description">
+            Fresh Atlantic salmon with lemon herb butter, roasted vegetables,
+            and wild rice.
+          </p>
+          <button class="order-btn" type="button">Order now</button>
+        </div>
+        <div class="card 3">
+          <img class="dish-image" src="./assets/dish-image-3.png" alt="" />
+          <p class="dish-title">Truffle Mushroom Pasta</p>
+          <p class="dish-price">
+            <data value="24">$24</data>
+          </p>
+          <p class="dish-description">
+            Fresh fettuccine tossed with wild mushrooms, parmesan, black truffle
+            cream, and herbs.
+          </p>
+          <button class="order-btn" type="button">Order now</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
