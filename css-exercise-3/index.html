@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script
+      src="https://kit.fontawesome.com/579053ac65.js"
+      crossorigin="anonymous"></script>
+    <title>CloudSync | Pricing</title>
+  </head>
+  <body>
+    <header>
+      <a href="./index.html" class="logo-text">Cloud<span>Sync</span></a>
+      <button
+        class="hamburger"
+        id="hamburger-btn"
+        aria-label="Toggle navigation"
+        aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <nav class="navbar" id="navbar">
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#pricing-section">Pricing</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="pricing-section">
+        <h2 class="section-title">Pricing Section</h2>
+        <div class="grid-container">
+          <article class="card-pricing">
+            <div class="card-header">
+              <h3 class="plan-title">Free</h3>
+              <p class="plan-price"><data value="0">$0</data></p>
+              <p class="plan-description">
+                Perfect for individuals exploring CloudSync.
+              </p>
+            </div>
+            <div class="card-features">
+              <ul class="features-list">
+                <li>1 Workspace</li>
+                <li>Up to 3 Team Members</li>
+                <li>5 GB Secure Storage</li>
+                <li>Basic Task Management</li>
+                <li>Email Support</li>
+              </ul>
+            </div>
+            <button class="purchase-btn">Get Started</button>
+          </article>
+          <article class="card-pricing">
+            <div class="popular-badge">⭐ Most Popular</div>
+            <div class="card-header">
+              <h3 class="plan-title">Pro <i class="fa-solid fa-star"></i></h3>
+              <p class="plan-price">
+                <data value="19">$19</data><span>per user/month</span>
+              </p>
+              <p class="plan-description">
+                Everything you need for growing teams.
+              </p>
+            </div>
+            <div class="card-features">
+              <ul class="features-list">
+                <li>Unlimited Workspaces</li>
+                <li>Unlimited Team Members</li>
+                <li>500 GB Secure Storage</li>
+                <li>Advanced Project Management</li>
+                <li>Team Collaboration Tools</li>
+                <li>Calendar Integration</li>
+                <li>Priority Email Support</li>
+                <li>Workflow Automation</li>
+              </ul>
+            </div>
+            <button class="purchase-btn">Start Free Trial</button>
+          </article>
+          <article class="card-pricing">
+            <div class="card-header">
+              <h3 class="plan-title">Enterprise</h3>
+              <p class="plan-price">Custom</p>
+              <p class="plan-description">
+                Built for organizations with advanced security and support
+                needs.
+              </p>
+            </div>
+            <div class="card-features">
+              <ul class="features-list">
+                <li>Everything in Pro</li>
+                <li>Unlimited Storage</li>
+                <li>Dedicated Account Manager</li>
+                <li>Advanced Security Controls</li>
+                <li>Single Sign-On (SSO)</li>
+                <li>API Access</li>
+                <li>Custom Integrations</li>
+                <li>24/7 Premium Support</li>
+              </ul>
+            </div>
+            <button class="purchase-btn">Contact Sales</button>
+          </article>
+        </div>
+      </section>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.getElementById("hamburger-btn");
+        const navbar = document.getElementById("navbar");
+
+        // Safety check – if either element is missing, log an error
+        if (!hamburger || !navbar) {
+          console.error("Hamburger or navbar not found!");
+          return;
+        }
+
+        hamburger.addEventListener("click", function () {
+          const isOpen = navbar.classList.toggle("active");
+          hamburger.setAttribute("aria-expanded", isOpen);
+
+          // Toggle icon (requires Font Awesome)
+          const icon = hamburger.querySelector("i");
+          if (icon) {
+            icon.className = isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+          }
+        });
+
+        // Close menu when a nav link is clicked
+        document.querySelectorAll(".nav-links li a").forEach((link) => {
+          link.addEventListener("click", function () {
+            navbar.classList.remove("active");
+            hamburger.setAttribute("aria-expanded", "false");
+            const icon = hamburger.querySelector("i");
+            if (icon) {
+              icon.className = "fa-solid fa-bars";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
