@@ -62,7 +62,7 @@ header {
 
 /* ===== HAMBURGER BUTTON ===== */
 .hamburger {
-  display: none; /* Hidden on desktop */
+  display: none;
   background: none;
   border: none;
   font-size: 1.8rem;
@@ -100,7 +100,6 @@ header {
   transition: color 0.25s ease;
 }
 
-/* Sliding underline (desktop only) */
 .nav-links li a::after {
   content: "";
   position: absolute;
@@ -132,7 +131,7 @@ header {
 
 #pricing-section {
   background-color: var(--main-background);
-  padding: 100px;
+  padding: 100px 5%; /* FIX: Changed static 100px to percentage-based side padding to prevent overflow */
 }
 
 .section-title {
@@ -142,6 +141,15 @@ header {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 54px;
+}
+
+/* FIX: Added a max-width to the container so the cards don't stretch forever on massive screens */
+.grid-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px; /* FIX: Reduced gap slightly for better desktop cohesion */
 }
 
 .plan-title {
@@ -183,19 +191,22 @@ header {
   line-height: 1.8;
   list-style-type: "✔ ";
   margin-bottom: 40px;
+  padding-left: 1rem; /* FIX: Added slight padding to ensure the checkmarks have breathing room */
 }
 
 .purchase-btn {
   font-family: var(--subtitle-font);
   font-size: 1rem;
   font-weight: 500;
-  height: 32px;
-  padding: 0 32px;
+  /* FIX: Replaced explicit height with padding to allow text to scale safely */
+  padding: 0.75rem 2rem;
   border-radius: 8px;
   background-color: #fff;
   border: 1px solid #2563eb;
   color: #2563eb;
   transition: all 0.3s ease;
+  cursor: pointer; /* FIX: Always add cursor pointers to buttons! */
+  width: 100%; /* FIX: Made buttons fill the card width for a cleaner SaaS look */
 }
 
 .card-pricing:nth-child(2) > .purchase-btn {
@@ -218,68 +229,79 @@ header {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; FIX: Removed overflow hidden so the popular badge doesn't get clipped if it moves */
   transition: all 0.3s ease;
+  background-color: var(
+    --card-background
+  ); /* FIX: Ensure card background is explicit for overlapping */
 }
 
 .card-pricing:nth-child(2) {
-  transform: scale(110%);
+  transform: scale(
+    1.05
+  ); /* FIX: 110% is often too aggressive, scaled down to 105% */
   border: 2px solid #2563eb;
   box-shadow: 0 8px 32px rgba(37, 99, 235, 0.18);
+  z-index: 2; /* FIX: Added z-index so this card renders OVER the 1st and 3rd cards */
 }
 
 .popular-badge {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: -15px; /* FIX: Moved badge to the border line for a classic SaaS aesthetic */
+  right: 50%;
+  transform: translateX(50%); /* FIX: Centered the badge */
   z-index: 10;
   font-size: 0.7rem;
   font-weight: 700;
   font-family: var(--heading-font);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  padding: 0.35rem 1rem;
+  padding: 0.4rem 1.2rem;
   border-radius: 20px;
   background-color: #2563eb;
   color: #ffffff;
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
-  z-index: 1;
   transition: all 0.3s ease;
 }
 
 .popular-badge:hover {
-  transform: scale(105%);
+  transform: translateX(50%) scale(1.05);
 }
 
 .card-pricing:hover {
   transform: translateY(-6px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+  z-index: 3; /* FIX: Brings hovered card to the very front */
 }
 
 .card-pricing:nth-child(2):hover {
-  transform: translateY(-6px) scale(110%);
+  transform: translateY(-6px) scale(1.05);
   box-shadow:
     0 16px 48px rgba(37, 99, 235, 0.25),
     0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-@media screen and (min-width: 1125px) {
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
-  }
-}
+/* =========================================
+   MEDIA QUERIES 
+   ========================================= */
 
-@media screen and (min-width: 769px) and (max-width: 1124px) {
+/* FIX: Simplified media queries. Removed the awkward 2-column layout for 3 cards. 
+   It snaps from 3 columns directly to 1 column on smaller screens. */
+@media (max-width: 950px) {
   .grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
+    grid-template-columns: 1fr;
+    max-width: 500px; /* Constrain single column width so cards don't look weirdly wide */
+    gap: 40px;
   }
 
-  #pricing-section {
-    padding: 40px;
+  .card-pricing:nth-child(2) {
+    transform: scale(
+      1
+    ); /* FIX: Disable scaling on smaller screens to prevent overflow */
+  }
+
+  .card-pricing:nth-child(2):hover {
+    transform: translateY(-6px) scale(1); /* FIX: Disable hover scale for mobile/tablet */
   }
 }
 
@@ -330,13 +352,12 @@ header {
   }
 
   #pricing-section {
-    padding: 50px;
+    padding: 60px 5%;
   }
 
-  .grid-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 100px;
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
   }
 }
 
