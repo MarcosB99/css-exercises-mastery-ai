@@ -56,6 +56,7 @@ header {
   top: 0;
   background-color: var(--secondary-background);
   padding: 0 5%;
+  z-index: 1000; /* FIX: Added z-index so the header stays above content when scrolling */
 }
 
 .nav-links {
@@ -147,7 +148,7 @@ header {
 
 #hero-section {
   margin-top: 70px;
-  height: 100vh;
+  min-height: 100vh; /* FIX: Changed height to min-height */
   display: flex;
   scroll-margin-top: 70px;
   align-items: center;
@@ -157,7 +158,6 @@ header {
   background:
     linear-gradient(rgba(59, 42, 33, 0.6), rgba(59, 42, 33, 0.6)),
     url(./assets/hero-image.png);
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -175,17 +175,19 @@ header {
 
 #about-section {
   background-color: var(--primary-background);
-  height: 100vh;
+  min-height: 100vh; /* FIX: Changed height to min-height */
   scroll-margin-top: 70px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 90px 20px;
+  padding: 90px 5%; /* FIX: Used percentage padding for better responsiveness */
+  gap: 40px; /* FIX: Added gap for spacing between the two columns */
 }
 
 .right-side-about-section {
   display: flex;
   flex-direction: column;
+  width: 50%; /* FIX: Explicitly set to take up half the flex container */
 }
 
 .about-title {
@@ -198,19 +200,20 @@ header {
 
 .about-paragraph {
   text-align: justify;
-  width: 90%;
+  width: 100%; /* FIX: Changed from 90% to 100% since the parent controls the width now */
   color: var(--body-text);
 }
 
 .left-side-about-section {
-  width: 180%;
+  width: 50%; /* FIX: Removed 180% magic number and matched the sibling column */
 }
 
 .about-image {
-  height: 100%;
-  width: 100%;
+  max-width: 100%; /* FIX: Replaced explicit height/width with max-width/height auto */
+  height: auto;
   border-radius: 10px;
   transition: all 0.3s ease;
+  display: block; /* FIX: Removes small margin normally found under inline images */
 }
 
 .about-image:hover {
@@ -220,7 +223,7 @@ header {
 
 #menu-section {
   background-color: var(--secondary-background);
-  height: 100vh;
+  min-height: 100vh; /* FIX: Changed height to min-height */
   scroll-margin-top: 70px;
   padding: 90px 50px;
 }
@@ -238,6 +241,7 @@ header {
   font-family: var(--heading-font);
   color: var(--primary-color);
   text-align: center;
+  margin-bottom: 40px; /* FIX: Added margin to distance the title from the grid */
 }
 
 .card {
@@ -292,6 +296,7 @@ header {
   font-size: 1rem;
   font-weight: bold;
   transition: all 0.3s ease;
+  cursor: pointer; /* FIX: Added cursor pointer for better UX */
 }
 
 .order-btn:hover {
@@ -301,25 +306,26 @@ header {
 }
 
 #reservation-section {
-  height: 100vh;
+  min-height: 100vh; /* FIX: Changed height to min-height */
   scroll-margin-top: 70px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   background-color: var(--primary-background);
+  padding: 90px 5%; /* FIX: Added padding to keep content from hitting the edges */
+  gap: 40px;
 }
 
 .left-side-reservation-section {
-  height: 80%;
-  width: 45%;
+  flex: 1; /* FIX: Swapped explicit percentages for flexible basis */
+  max-width: 600px;
 }
 
 .right-side-reservation-section {
-  width: 45%;
+  flex: 1; /* FIX: Swapped explicit percentages for flexible basis */
   display: flex;
   flex-direction: column;
-  height: 40%;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .right-side-reserv-title {
@@ -328,13 +334,13 @@ header {
   color: var(--primary-color);
   font-weight: bold;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .right-side-reserv-ul {
-  height: 50%;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 30px; /* FIX: Reduced gap to prevent excessive spacing */
   align-items: center;
   font-family: var(--body-font);
   font-size: 1.5rem;
@@ -357,53 +363,42 @@ header {
   justify-content: space-around;
   align-items: flex-start;
   border: 2px solid #ddd4c7;
-  height: 100%;
+  height: auto; /* FIX: Removed 100% height to let form dictate its own height naturally */
   width: 100%;
   font-family: var(--body-font);
   color: var(--body-text);
-  padding: 14px 18px;
+  padding: 30px; /* FIX: Increased padding for a more spacious form layout */
   border-radius: 8px;
+  gap: 15px; /* FIX: Added gap instead of relying solely on space-around */
 }
 
 .form-title {
   font-family: var(--heading-font);
   text-align: center;
   color: var(--primary-color);
+  width: 100%;
 }
 
 .form-description {
   text-align: center;
+  margin-bottom: 10px;
 }
 
-.reservation-form > input {
-  width: 100%;
-  height: 40px;
-  border-radius: 8px;
-  padding: 0 5px;
-}
-
-.reservation-form > label {
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.reservation-form > select {
-  height: 40px;
-  width: 100%;
-  border-radius: 8px;
-}
-
+.reservation-form > input,
+.reservation-form > select,
 .reservation-form > textarea {
-  height: 150px;
   width: 100%;
   border-radius: 8px;
-  padding: 10px;
+  padding: 10px; /* FIX: Unified padding for inputs */
+  border: 1px solid var(--border-color); /* FIX: Added a subtle border */
 }
 
 .reservation-form > input[type="submit"] {
   background-color: var(--primary-color);
   color: var(--pure-white);
   border: none;
+  margin-top: 10px;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
@@ -421,6 +416,7 @@ header {
   justify-content: center;
   align-items: center;
   line-height: 1.6;
+  padding: 90px 5%;
 }
 
 .container-contact {
@@ -448,6 +444,7 @@ header {
 .contact-description {
   margin-bottom: 1.5rem;
   border-bottom: 2px solid #f0e8e0;
+  padding-bottom: 1.5rem; /* FIX: Added padding bottom to breathe before the border */
   text-align: center;
   font-size: 1.1rem;
   color: #4a3a32;
@@ -621,11 +618,10 @@ address {
 }
 
 .site-footer {
-  background-color: #1a0f0a; /* Deep oak */
-  color: #e6dbd4; /* Warm cream text */
+  background-color: #1a0f0a;
+  color: #e6dbd4;
   padding: 3rem 2rem 1.5rem;
-  margin-top: 2rem;
-  border-top: 4px solid #d49b3b; /* Ember accent */
+  border-top: 4px solid #d49b3b;
 }
 
 .footer-container {
@@ -783,4 +779,94 @@ address {
 .footer-bottom .legal-links a:hover {
   border-bottom-color: #d49b3b;
   color: #ffffff;
+}
+
+/* ========================================================
+   FIX: NEW MEDIA QUERIES FOR RESPONSIVE DESIGN
+   ======================================================== */
+@media (max-width: 900px) {
+  /* Stack the flex containers for tablets/mobile */
+  #about-section,
+  #reservation-section {
+    flex-direction: column;
+    padding: 60px 5%;
+  }
+
+  .right-side-about-section,
+  .left-side-about-section,
+  .left-side-reservation-section,
+  .right-side-reservation-section {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Make sure titles stay centered on stacked mobile layout */
+  .about-title {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Fix Navigation for smaller screens */
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 5%;
+    position: static; /* Prevent absolute overlapping if elements wrap heavily */
+  }
+
+  .nav-links {
+    width: 100%;
+    margin: 15px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  /* Fix Hero typography and layout */
+  .rest-name {
+    font-size: 2.5rem;
+  }
+
+  .supporting-text {
+    width: 90%;
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Convert CSS Grids to single column for mobile */
+  .menu-container,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  /* Adjust footer alignments when stacked */
+  .footer-contact .contact-item {
+    justify-content: center;
+  }
+
+  .footer-hours ul li {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .map-buttons {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .social-media {
+    justify-content: center;
+    width: 100%;
+  }
 }
