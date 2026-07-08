@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script
+      src="https://kit.fontawesome.com/579053ac65.js"
+      crossorigin="anonymous"></script>
     <title>Restaurant Landing Page</title>
   </head>
   <body>
@@ -21,7 +21,7 @@
           <li><a href="#contact-section">Contact</a></li>
         </ul>
       </nav>
-      <button type="button" class="book-btn">Book a table</button>
+      <a href="#reservation-section" class="book-btn">Book a table</a>
     </header>
     <main>
       <section id="hero-section">
@@ -31,8 +31,8 @@
           flavor to premium ingredients and unforgettable dining experiences.
         </p>
         <div class="cta-buttons">
-          <button class="book-btn">Reserve your table</button>
-          <button class="menu-btn">View Menu</button>
+          <a href="#reservation-section" class="book-btn">Reserve your table</a>
+          <a href="#menu-section" class="menu-btn">View Menu</a>
         </div>
       </section>
       <section id="about-section">
@@ -179,28 +179,166 @@
             occasion, or simply craving exceptional wood-fired cuisine, we'd
             love to hear from you.
           </p>
-          <hr />
-          <div class="contact-info">
-            <address>
-              <div class="info-item">
-                <i class="fas fa-location-dot" aria-hidden="true"></i>
-                <span
-                  >245 Oak Street<br />
-                  Austin, TX 78701</span
-                >
-              </div>
-              <div class="info-item">
-                <i class="fas fa-phone" aria-hidden="true"></i>
-                <span>(512) 555-0187</span>
-              </div>
-              <div class="info-item">
-                <i class="fas fa-envelope" aria-hidden="true"></i>
-                <span>support@emberandoak.com</span>
-              </div>
-            </address>
+
+          <div class="contact-grid">
+            <div class="contact-details">
+              <address>
+                <div class="info-item">
+                  <i class="fas fa-location-dot" aria-hidden="true"></i>
+                  <span>
+                    245 Oak Street<br />
+                    Austin, TX 78701
+                  </span>
+                </div>
+                <div class="info-item">
+                  <i class="fas fa-phone" aria-hidden="true"></i>
+                  <a href="tel:+15125550187">(512) 555-0187</a>
+                </div>
+                <div class="info-item">
+                  <i class="fas fa-envelope" aria-hidden="true"></i>
+                  <a href="mailto:hello@emberandoak.com"
+                    >hello@emberandoak.com</a
+                  >
+                </div>
+              </address>
+            </div>
+
+            <div class="business-hours">
+              <h3>
+                <i class="far fa-clock" aria-hidden="true"></i> Business Hours
+              </h3>
+              <ul>
+                <li>
+                  <span class="day">Monday – Thursday</span>
+                  <span class="time">11:00 AM – 10:00 PM</span>
+                </li>
+                <li>
+                  <span class="day">Friday – Saturday</span>
+                  <span class="time">11:00 AM – 11:00 PM</span>
+                </li>
+                <li>
+                  <span class="day">Sunday</span>
+                  <span class="time">11:00 AM – 9:00 PM</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="contact-actions">
+            <div class="map-buttons">
+              <a
+                href="#"
+                class="btn btn-primary"
+                aria-label="View Ember & Oak on Google Maps">
+                <i class="fas fa-map" aria-hidden="true"></i> View on Google
+                Maps
+              </a>
+              <span class="separator">or</span>
+              <a
+                href="#"
+                class="btn btn-secondary"
+                aria-label="Get directions to Ember & Oak">
+                <i class="fas fa-route" aria-hidden="true"></i> Get Directions
+              </a>
+            </div>
+
+            <div class="social-media" aria-label="Social media links">
+              <a
+                href="#"
+                class="social-link"
+                aria-label="Visit our Facebook page">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+              </a>
+              <a
+                href="#"
+                class="social-link"
+                aria-label="Visit our Instagram profile">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a
+                href="#"
+                class="social-link"
+                aria-label="Visit our X (Twitter) profile">
+                <i class="fab fa-x-twitter" aria-hidden="true"></i>
+              </a>
+            </div>
           </div>
         </div>
       </section>
     </main>
+    <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+      <div class="footer-container">
+        <!-- Grid: Brand | Quick Links | Hours | Contact -->
+        <div class="footer-grid">
+          <!-- Column 1: Brand -->
+          <div class="footer-brand">
+            <div class="brand-name">Ember &amp; <span>Oak</span></div>
+            <p class="tagline">Wood-fired cuisine in the heart of Austin.</p>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <nav class="footer-links" aria-label="Quick links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#about-section">About</a></li>
+              <li><a href="#menu-section">Menu</a></li>
+              <li><a href="#reservation-section">Reservations</a></li>
+              <li><a href="#contact-section">Contact</a></li>
+            </ul>
+          </nav>
+
+          <!-- Column 3: Hours -->
+          <div class="footer-hours">
+            <h3>Hours</h3>
+            <ul>
+              <li>
+                <span class="day">Monday – Thursday</span>
+                <span class="time">11:00 AM – 10:00 PM</span>
+              </li>
+              <li>
+                <span class="day">Friday – Saturday</span>
+                <span class="time">11:00 AM – 11:00 PM</span>
+              </li>
+              <li>
+                <span class="day">Sunday</span>
+                <span class="time">11:00 AM – 9:00 PM</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Contact (Address, Phone, Email) -->
+          <div class="footer-contact">
+            <h3>Contact</h3>
+            <address>
+              <div class="contact-item">
+                <i class="fas fa-location-dot" aria-hidden="true"></i>
+                <span class="address-block">
+                  245 Oak Street<br />
+                  Austin, Texas
+                </span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone" aria-hidden="true"></i>
+                <a href="tel:+15125550187">(512) 555-0187</a>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                <a href="mailto:hello@emberandoak.com">hello@emberandoak.com</a>
+              </div>
+            </address>
+          </div>
+        </div>
+
+        <!-- Bottom row: Copyright + Legal extras -->
+        <div class="footer-bottom">
+          <small>&copy; 2026 Ember &amp; Oak. All rights reserved.</small>
+          <div class="legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

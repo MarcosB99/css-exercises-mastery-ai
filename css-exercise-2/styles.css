@@ -71,17 +71,54 @@ header {
   font-size: 1.2rem;
   font-weight: 500;
   color: var(--secondary-color);
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s ease;
+}
+
+.nav-links li > a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links li > a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Active Page */
+.nav-links li > a.active {
+  color: var(--primary-color);
+}
+
+.nav-links li > a.active::after {
+  transform: scaleX(1);
 }
 
 .book-btn {
   font-size: 1rem;
-  padding: 10px 0;
+  padding: 10px 10px;
   width: 200px;
   background-color: var(--primary-color);
   color: var(--pure-white);
   border-radius: 8px;
   transition: all 0.3s ease;
   border: none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .book-btn:hover {
@@ -92,13 +129,15 @@ header {
 
 .menu-btn {
   font-size: 1rem;
-  padding: 10px 0;
+  padding: 10px 10px;
   width: 200px;
   background-color: transparent;
   border: 1px solid var(--primary-color);
   border-radius: 8px;
   color: var(--pure-white);
   transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
 }
 
 .menu-btn:hover {
@@ -337,7 +376,6 @@ header {
 }
 
 .reservation-form > input {
-  display: block-inline;
   width: 100%;
   height: 40px;
   border-radius: 8px;
@@ -373,4 +411,376 @@ header {
   background-color: #623116;
   transform: translateY(-2px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+#contact-section {
+  min-height: 100vh;
+  scroll-margin-top: 70px;
+  background-color: var(--secondary-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.6;
+}
+
+.container-contact {
+  background-color: var(--pure-white);
+  border-radius: 18px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 12px 40px rgba(44, 24, 16, 0.08);
+  transition: all 0.2s ease;
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.contact-title > span {
+  color: #d49b3b;
+}
+
+.contact-description {
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #f0e8e0;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #4a3a32;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 3rem;
+  margin-bottom: 2.5rem;
+}
+
+address {
+  font-style: normal;
+}
+
+.contact-details .info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.contact-details .info-item i {
+  width: 1.5rem;
+  font-size: 1.2rem;
+  color: #d49b3b;
+  margin-top: 0.15rem;
+  text-align: center;
+}
+
+.contact-details .info-item a {
+  color: #2c1810;
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+  transition: border-color 0.2s;
+}
+
+.contact-details .info-item a:hover {
+  border-bottom-color: #d49b3b;
+  color: #1a0f0a;
+}
+
+.business-hours h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.03em;
+  color: #2c1810;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.business-hours h3 i {
+  color: #d49b3b;
+}
+
+.business-hours ul {
+  list-style: none;
+  padding: 0;
+}
+
+.business-hours ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed #f0e8e0;
+  font-size: 0.98rem;
+}
+
+.business-hours ul li:last-child {
+  border-bottom: none;
+}
+
+.business-hours ul li .day {
+  font-weight: 500;
+}
+
+.business-hours ul li .time {
+  color: #4a3a32;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 2px solid #f0e8e0;
+}
+
+/* Map / Directions Buttons */
+.map-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+
+.map-buttons .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 60px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #2c1810;
+  color: #ffffff;
+  border-color: #2c1810;
+}
+
+.btn-primary:hover {
+  background-color: #1a0f0a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(44, 24, 16, 0.15);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #2c1810;
+  border-color: #c8b8ac;
+}
+
+.btn-secondary:hover {
+  background-color: #f0e8e0;
+  border-color: #2c1810;
+  transform: translateY(-2px);
+}
+
+.map-buttons .separator {
+  color: #a8998c;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+/* Social Media */
+.social-media {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.social-media .social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #4a3a32;
+  background-color: #f5efe8;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+}
+
+.social-media .social-link:hover {
+  background-color: #2c1810;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.site-footer {
+  background-color: #1a0f0a; /* Deep oak */
+  color: #e6dbd4; /* Warm cream text */
+  padding: 3rem 2rem 1.5rem;
+  margin-top: 2rem;
+  border-top: 4px solid #d49b3b; /* Ember accent */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer-grid h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #d49b3b;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(212, 155, 59, 0.25);
+  padding-bottom: 0.6rem;
+}
+
+.footer-brand .brand-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand .brand-name span {
+  color: #d49b3b;
+}
+
+.footer-brand .tagline {
+  font-size: 0.95rem;
+  opacity: 0.75;
+  line-height: 1.5;
+  max-width: 220px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links ul li a {
+  color: #e6dbd4;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.footer-links ul li a:hover {
+  color: #d49b3b;
+  border-bottom-color: #d49b3b;
+  padding-left: 4px;
+}
+
+.footer-hours ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-hours ul li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.92rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+}
+
+.footer-hours ul li:last-child {
+  border-bottom: none;
+}
+
+.footer-hours ul li .day {
+  font-weight: 500;
+}
+
+.footer-hours ul li .time {
+  opacity: 0.8;
+}
+
+.footer-contact address {
+  font-style: normal;
+}
+
+.footer-contact .contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.95rem;
+}
+
+.footer-contact .contact-item i {
+  width: 1.2rem;
+  color: #d49b3b;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+  text-align: center;
+}
+
+.footer-contact .contact-item a {
+  color: #e6dbd4;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.footer-contact .contact-item a:hover {
+  color: #ffffff;
+  border-bottom-color: #d49b3b;
+}
+
+.footer-contact .contact-item .address-block {
+  line-height: 1.5;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.footer-bottom small {
+  font-size: 0.85rem;
+}
+
+.footer-bottom .legal-links a {
+  color: #e6dbd4;
+  text-decoration: none;
+  margin-left: 1rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.footer-bottom .legal-links a:hover {
+  border-bottom-color: #d49b3b;
+  color: #ffffff;
 }
