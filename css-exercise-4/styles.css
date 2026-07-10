@@ -45,29 +45,131 @@ body {
 }
 
 .logo-text {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease;
+}
+
+.logo-text span {
+  color: var(--accent-color);
+  transition: color 0.3s ease;
+}
+
+.logo-text:hover {
+  color: var(--accent-color);
+}
+
+.logo-text:hover span {
   color: var(--primary-color);
 }
 
 header {
   width: 100%;
-  height: 100px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: fixed;
   top: 0;
-  align-items: center;
   padding: 0 5%;
-  background-color: var(--pure-white);
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  box-shadow: 0 2px 20px rgba(15, 23, 42, 0.06);
+  z-index: 999;
+  transition:
+    height 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.navbar {
-  width: 40%;
+header.scrolled {
+  height: 64px;
+  box-shadow: 0 4px 30px rgba(15, 23, 42, 0.08);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: var(--secondary-color);
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+  z-index: 110;
+  border-radius: 8px;
+}
+
+.hamburger:hover {
+  color: var(--accent-color);
+  background-color: rgba(59, 130, 246, 0.06);
+}
+
+.hamburger:active {
+  transform: scale(0.92);
+}
+
+#navbar {
+  width: auto;
 }
 
 .nav-links {
   display: flex;
   list-style-type: none;
-  justify-content: space-between;
+  gap: 2.5rem; /* Replaces justify-content: space-between */
+  align-items: center;
+}
+
+.nav-links li a {
+  font-family: var(--body-font);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+/* ---- Sliding Underline on Hover ---- */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 2px;
+}
+
+.nav-links li a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ---- Active Link (Current Section) ---- */
+.nav-links li a.active {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.nav-links li a.active::after {
+  transform: scaleX(1);
+  background-color: var(--primary-color);
 }
 
 #hero-section {
@@ -182,4 +284,112 @@ figcaption .location {
   color: var(--body-text, #3b82f6);
   letter-spacing: 0.03em;
   margin-top: 0.1rem;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .gallery-container {
+    max-width: 1280px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: var(--pure-white);
+    gap: 24px;
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .gallery-container {
+    max-width: 1280px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: var(--pure-white);
+    gap: 24px;
+    padding: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .gallery-container {
+    max-width: 1280px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: var(--pure-white);
+    gap: 24px;
+    padding: 30px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  #navbar {
+    position: absolute;
+    top: 80px; /* Matches header height */
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--accent-color);
+    box-shadow: 0 16px 48px rgba(15, 23, 42, 0.1);
+    padding: 0 5%;
+    max-height: 0;
+    overflow: hidden;
+    z-index: 999;
+    transition:
+      max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      padding 0.3s ease,
+      opacity 0.3s ease;
+    opacity: 0;
+    display: block;
+  }
+
+  #navbar.active {
+    max-height: 400px;
+    padding: 1.5rem 5%;
+    opacity: 1;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    width: 100%;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links li a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.6rem 0;
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  /* Remove the underline on mobile - use background highlight instead */
+  .nav-links li a::after {
+    display: none;
+  }
+
+  .nav-links li a:hover,
+  .nav-links li a.active {
+    background-color: rgba(59, 130, 246, 0.08);
+    color: var(--accent-color);
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    overflow-wrap: break-word;
+  }
 }

@@ -4,12 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" />
+    <script
+      src="https://kit.fontawesome.com/579053ac65.js"
+      crossorigin="anonymous"></script>
     <title>Responsive Photo Gallery</title>
   </head>
   <body>
     <header>
       <a href="#index.html" class="logo-text">Wander<span>Scape</span></a>
-      <nav class="navbar">
+      <button
+        class="hamburger"
+        id="hamburger-btn"
+        aria-label="Toggle navigation"
+        aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <nav id="navbar">
         <ul class="nav-links">
           <li><a href="#hero-section">Home</a></li>
           <li><a href="#plans-section">Plans</a></li>
@@ -144,6 +154,46 @@
         </div>
       </section>
     </main>
-    <footer></footer>
+    <script>
+      const hamburger = document.getElementById("hamburger-btn");
+      const navbar = document.getElementById("navbar");
+
+      hamburger.addEventListener("click", () => {
+        const isOpen = navbar.classList.toggle("active");
+        hamburger.setAttribute("aria-expanded", isOpen);
+
+        // Switch icon between ☰ and ✕
+        const icon = hamburger.querySelector("i");
+        if (isOpen) {
+          icon.className = "fa-solid fa-xmark"; // Close icon
+        } else {
+          icon.className = "fa-solid fa-bars"; // Hamburger icon
+        }
+      });
+
+      // Optional: Close the menu when a nav link is clicked (better UX)
+      document.querySelectorAll(".nav-links li a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navbar.classList.remove("active");
+          hamburger.setAttribute("aria-expanded", "false");
+          hamburger.querySelector("i").className = "fa-solid fa-bars";
+        });
+      });
+    </script>
+    <script>
+      // Header shrink on scroll
+      const header = document.querySelector("header");
+      let lastScroll = 0;
+
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+        lastScroll = currentScroll;
+      });
+    </script>
   </body>
 </html>
