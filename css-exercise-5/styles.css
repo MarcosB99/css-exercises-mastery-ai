@@ -1,14 +1,12 @@
 /*Importing fonts for the project*/
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
-/*Set up media for smooth scroll*/
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
   }
 }
 
-/*Project color palette*/
 :root {
   --main-background: #0f172a;
   --cards-background: #1e293b;
@@ -17,7 +15,6 @@
   --gradient-accent: to right, #8b5cf6, #3b82f6;
 }
 
-/*Universal reset*/
 *,
 *::after,
 *::before {
@@ -35,10 +32,15 @@ body {
   color: var(--secondary-text);
 }
 
+/* FIX: Consolidated section layout logic into one global rule to prevent conflicting height declarations */
 section {
-  padding: 5rem 0;
+  padding: 100px 5%;
   max-width: 1200px;
   margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 header {
@@ -105,10 +107,9 @@ header {
 }
 
 #hero-section {
-  display: flex;
+  flex-direction: row; /* Override the default column */
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
   gap: 20px;
 }
 
@@ -116,8 +117,8 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start; /* FIX: Aligned text to the left for better typography flow */
+  text-align: left;
   gap: 2rem;
   flex-basis: 45%;
 }
@@ -133,7 +134,6 @@ header {
   height: auto;
   display: block;
   border-radius: 24px;
-  height: 100%;
   object-fit: cover;
   transition: all 0.3s ease;
 }
@@ -151,6 +151,7 @@ header {
   color: transparent;
   background: linear-gradient(var(--gradient-accent));
   background-clip: text;
+  -webkit-background-clip: text;
 }
 
 .hero-subtitle {
@@ -159,7 +160,7 @@ header {
 
 .add-to-cart-btn {
   background: linear-gradient(var(--gradient-accent));
-  padding: 5px 30px;
+  padding: 10px 30px; /* FIX: Adjusted padding for a better standard button shape */
   border-radius: 12px;
   color: var(--primary-text);
   border: none;
@@ -167,21 +168,27 @@ header {
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
+  cursor: pointer; /* FIX: Added cursor pointer */
 }
 
 .add-to-cart-btn:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); /* FIX: Added shadow for better feedback */
 }
 
 .add-to-cart-btn:active {
   background: linear-gradient(to right, #3b82f6, #8b5cf6);
 }
 
+/* FIX: New class to safely enlarge the CTA without using transform: scale() */
+.btn-large {
+  font-size: 1.5rem;
+  padding: 1rem 3rem;
+  border-radius: 16px;
+}
+
 #features-section {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .grid-container {
@@ -205,7 +212,9 @@ header {
 }
 
 .feature:hover {
-  transform: scale(1.05);
+  transform: scale(
+    1.03
+  ); /* FIX: Reduced scale slightly to prevent overflow jitter */
 }
 
 .features-title {
@@ -233,7 +242,6 @@ header {
 }
 
 .feature-image:hover {
-  transform: scale(1.01);
   box-shadow:
     0 0 2px rgba(59, 130, 246, 0.8),
     0 10px 20px -5px rgba(59, 130, 246, 0.4);
@@ -245,15 +253,9 @@ header {
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--primary-text);
-  margin-bottom: 1.5rem;
 }
 
-#specs-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
-}
+/* #specs-section layout handled by global section rule */
 
 .specs-title {
   text-align: center;
@@ -270,34 +272,50 @@ header {
   gap: 30px;
 }
 
-dt,
-dd {
+/* FIX: Refactored to style the wrapper div, keeping dt and dd together */
+.spec-item {
   border: 2px solid var(--cards-background);
+  border-radius: 12px;
+  overflow: hidden;
   transition: all 0.3s ease;
-  text-align: center;
-  padding: 10px 0;
-  font-weight: bold;
+  display: flex;
+  flex-direction: column;
 }
 
-dt:hover,
-dd:hover {
+.spec-item dt {
+  background-color: var(--cards-background);
+  color: var(--primary-text);
+  padding: 10px 15px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.spec-item dd {
+  padding: 15px;
+  text-align: center;
+  margin: 0;
+  background-color: transparent;
+}
+
+/* FIX: Hover the entire card, not the individual text lines */
+.spec-item:hover {
   background: linear-gradient(var(--gradient-accent));
-  transform: scale(1.03);
+  transform: translateY(-4px);
+  border-color: transparent;
+}
+
+.spec-item:hover dd {
   color: var(--primary-text);
 }
 
 #reviews-section {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
 .reviews-title {
   font-size: 3rem;
   color: var(--primary-text);
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .reviews-list {
@@ -305,12 +323,14 @@ dd:hover {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  width: 100%;
+  max-width: 800px; /* FIX: Constrained width for readability */
 }
 
 .review {
   background-color: var(--cards-background);
   border-radius: 24px;
-  padding: 5%;
+  padding: 40px;
   font-size: 1.125rem;
   transition: all 0.3s ease;
   color: var(--primary-text);
@@ -318,21 +338,27 @@ dd:hover {
 
 .review:hover {
   box-shadow:
-    0 20px 25px -5px rgba(0, 0, 0, 0.8),
-    0 8px 10px -6px rgba(0, 0, 0, 0.6);
-  transform: scale(1.01);
+    0 20px 25px -5px rgba(0, 0, 0, 0.4),
+    0 8px 10px -6px rgba(0, 0, 0, 0.2);
+  transform: translateY(
+    -4px
+  ); /* FIX: Y-translation feels smoother than scale for wide blocks */
 }
 
 .review-author {
   text-align: end;
   font-weight: bolder;
+  margin-top: 1.5rem;
+  color: var(--secondary-text);
+}
+
+.review-author cite {
+  color: var(--primary-text);
+  font-style: normal;
+  display: block;
 }
 
 #buy-now-section {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -340,42 +366,34 @@ dd:hover {
   color: var(--primary-text);
   font-size: 3rem;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .buy-now-description {
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
   text-align: center;
+  max-width: 600px;
 }
 
-#buy-now-section > .add-to-cart-btn {
-  transform: scale(1.5);
-}
-
-#buy-now-section > .add-to-cart-btn:hover {
-  transform: scale(1.55);
-}
-
-#features-section,
-#specs-section,
-#reviews-section,
-#buy-now-section {
-  height: auto;
-  min-height: 100vh;
-  padding: 100px 5%;
-}
+/* =========================================
+   MEDIA QUERIES 
+   ========================================= */
 
 @media (max-width: 900px) {
   #hero-section {
     flex-direction: column;
-    justify-content: center;
     text-align: center;
-    padding: 120px 5% 50px 5%;
-    height: auto;
-    min-height: 100vh;
+    padding-top: 120px;
   }
 
-  .left-side,
+  .left-side {
+    align-items: center;
+    text-align: center;
+    flex-basis: auto;
+    width: 100%;
+  }
+
   .right-side {
     flex-basis: auto;
     width: 100%;
@@ -409,6 +427,7 @@ dd:hover {
     height: auto;
     padding: 1rem 5%;
     gap: 1rem;
+    position: relative; /* FIX: Un-stick the header on mobile so it doesn't block the screen */
   }
 
   .nav-links {
@@ -430,13 +449,5 @@ dd:hover {
 
   .buy-now-description {
     font-size: 1.1rem;
-  }
-
-  #buy-now-section > .add-to-cart-btn {
-    transform: scale(1.1);
-  }
-
-  #buy-now-section > .add-to-cart-btn:hover {
-    transform: scale(1.15);
   }
 }
