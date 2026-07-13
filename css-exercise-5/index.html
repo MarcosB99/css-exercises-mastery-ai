@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./index.html" />
+    <link rel="stylesheet" href="./styles.css" />
     <script
       src="https://kit.fontawesome.com/579053ac65.js"
       crossorigin="anonymous"></script>
@@ -11,7 +11,7 @@
   </head>
   <body>
     <header>
-      <a href="#hero-section" class="logo-text">Aura A1</a>
+      <a href="#hero-section" class="logo-text">Aura <span>A1</span></a>
       <nav id="navbar">
         <ul class="nav-links">
           <li><a href="#features-section">Features</a></li>
@@ -19,21 +19,128 @@
           <li><a href="#reviews-section">Reviews</a></li>
         </ul>
       </nav>
-      <a href="#buy-now-section">Buy Now</a>
+      <a href="#buy-now-section" class="add-to-cart-btn">Buy Now</a>
     </header>
     <main>
       <section id="hero-section">
         <div class="left-side">
-          <h1>Silence the World. Amplify Your Soul.</h1>
-          <p>
+          <h1 class="hero-title">Silence the World. Amplify Your Soul.</h1>
+          <p class="hero-subtitle">
             Next-generation active noise cancellation meets studio-quality
             audio. Experience sound exactly as the artist intended.
           </p>
-          <button>Pre-order for $299</button>
+          <button class="add-to-cart-btn">Pre-order for $299</button>
         </div>
         <div class="right-side">
-          <img src="" alt="" />
+          <img
+            class="hero-image"
+            src="./assets/hero-image.png"
+            alt="Black over-ear wireless headphones displayed on a dark studio background." />
         </div>
+      </section>
+      <section id="features-section">
+        <h2 class="features-title">Features</h2>
+        <div class="grid-container">
+          <article class="feature">
+            <img
+              src="./assets/feature-1-image.png"
+              alt="Black over-ear wireless headphones shown in a studio setting, emphasizing the external microphone design for noise cancellation."
+              class="feature-image" />
+            <div class="feature-text">
+              <h3 class="feature-title">Unrivaled Noise Cancellation</h3>
+              <p class="feature-description">
+                Our proprietary 6-mic array samples ambient noise 1,000 times
+                per second to deliver absolute silence.
+              </p>
+            </div>
+          </article>
+          <article class="feature">
+            <img
+              src="./assets/feature-2-image.png"
+              alt="Black over-ear wireless headphones resting on a dark surface with a charging cable connected."
+              class="feature-image" />
+            <div class="feature-text">
+              <h3 class="feature-title">50-Hour Battery Life</h3>
+              <p class="feature-description">
+                Listen all day and all night. And when you do need juice, a
+                quick 10-minute charge gives you 5 hours of playback.
+              </p>
+            </div>
+          </article>
+          <article class="feature">
+            <img
+              src="./assets/feature-3-image.png"
+              alt="Black over-ear wireless headphones with padded ear cushions and a cushioned headband displayed on a dark background."
+              class="feature-image" />
+            <div class="feature-text">
+              <h3 class="feature-title">Cloud-Like Comfort</h3>
+              <p class="feature-description">
+                Engineered with adaptive memory foam earcups and a
+                weight-distributing headband for fatigue-free listening.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section id="specs-section">
+        <h2 class="specs-title">Under the hood</h2>
+        <dl class="specs-list">
+          <dt>Drivers</dt>
+          <dd>40mm Custom Neodymium</dd>
+          <dt>Weight</dt>
+          <dd>250g</dd>
+          <dt>Connectivity</dt>
+          <dd>Bluetooth 5.3 & 3.5mm Jack</dd>
+          <dt>Codecs</dt>
+          <dd>LDAC, AAC, aptX Adaptive</dd>
+          <dt>Water Resistance</dt>
+          <dd>IPX4</dd>
+          <dt>Microphones</dt>
+          <dd>6x Beamforming</dd>
+        </dl>
+      </section>
+      <section id="reviews-section">
+        <h2 class="reviews-title">What the Critics Say</h2>
+        <ul class="reviews-list">
+          <li>
+            <article class="review">
+              <blockquote>
+                <p>
+                  "The Aura A1 sets a new benchmark for wireless audio. The bass
+                  is punchy, and the highs are crystal clear."
+                </p>
+              </blockquote>
+              <footer class="review-author">
+                <cite>Sarah J.</cite>
+                <span>TechAudio Mag</span>
+              </footer>
+            </article>
+          </li>
+          <li>
+            <article class="review">
+              <blockquote>
+                <p>
+                  "I wear them for 8 hours a day while coding, and I forget they
+                  are even on my head. Incredible."
+                </p>
+              </blockquote>
+              <footer class="review-author">
+                <cite>Marcus T.</cite>
+                <span>Software Engineer</span>
+              </footer>
+            </article>
+          </li>
+        </ul>
+      </section>
+      <section id="buy-now-section">
+        <h2 class="buy-now-title">Ready to upgrade your ears?</h2>
+        <p class="buy-now-description">
+          Join 50,000+ audiophiles who have already made the switch. Free
+          shipping and a 30-day money-back guarantee.
+        </p>
+        <button class="add-to-cart-btn">
+          Add to Cart - <data value="299">$299</data>
+        </button>
       </section>
     </main>
     <footer></footer>
