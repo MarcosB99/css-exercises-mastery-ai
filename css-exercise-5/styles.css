@@ -1,0 +1,24 @@
+/*Importing fonts for the project*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+/*Project color palette*/
+:root {
+  --main-background: #0f172a;
+  --cards-background: #1e293b;
+  --primary-text: #f8fafc;
+  --secondary-text: #94a3b8;
+  --gradient-accent: #8b5cf6, #3b82f6;
+}
+
+/*Universal reset*/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+}
