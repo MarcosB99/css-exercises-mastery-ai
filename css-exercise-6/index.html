@@ -7,7 +7,6 @@
     <title>Magazine | STRUCTURA</title>
   </head>
   <body>
-    <!--Site header (Logo & Nav)-->
     <header>
       <a class="logo-text" href="./index.html">STRUCTURA</a>
       <nav id="navbar">
@@ -21,7 +20,6 @@
         </ul>
       </nav>
     </header>
-    <!--Breaking News section-->
     <section
       class="breaking-news"
       aria-label="Breaking News"
@@ -57,19 +55,19 @@
       </section>
       <aside id="sidebar">
         <h2 class="sidebar-title">Editor's Picks</h2>
-        <article class="article-one">
+        <article class="sidebar-article">
           <p class="category">Interior</p>
           <h3 class="side-article-title">
             Maximizing Micro-Apartments in High-Density Cities
           </h3>
         </article>
-        <article class="article-two">
+        <article class="sidebar-article">
           <p class="category">Materials</p>
           <h3 class="side-article-title">
             Mycelium Bricks: Building with Mushrooms
           </h3>
         </article>
-        <article class="article-three">
+        <article class="sidebar-article">
           <p class="category">Opinion</p>
           <h3 class="side-article-title">
             Stop Demolishing, Start Adapting. The Case for Retrofits.
@@ -79,39 +77,39 @@
       <section id="trending-section">
         <h2 class="trending-title">Trending This Week</h2>
         <div class="trending-grid-container">
-          <article class="card-one">
+          <article class="trending-card">
             <img
               src="./assets/card-one-image.jpg"
-              class="card-one-image"
-              alt="" />
+              class="trending-card-image"
+              alt="Floating wooden pavilions on the water in Venice" />
             <h3 class="trending-card-title">
               The Floating Pavilions of Venice
             </h3>
             <time datetime="2026-12-07">July 12, 2026</time>
           </article>
-          <article class="card-two">
+          <article class="trending-card">
             <img
               src="./assets/card-two-image.jpg"
-              class="card-two-image"
-              alt="" />
+              class="trending-card-image"
+              alt="Render of a futuristic underground architectural campus" />
             <h3 class="trending-card-title">
               A First Look at Apple's New Underground Campus
             </h3>
             <time datetime="2026-11-07">July 11, 2026</time>
           </article>
-          <article class="card-three">
+          <article class="trending-card">
             <img
               src="./assets/card-three-image.jpeg"
-              class="card-three-image"
-              alt="" />
+              class="trending-card-image"
+              alt="Modern bamboo structural beams supporting a wide roof" />
             <h3 class="trending-card-title">Bamboo as the New Steel?</h3>
             <time datetime="2026-10-07">July 10, 2026</time>
           </article>
-          <article class="card-four">
+          <article class="trending-card">
             <img
               src="./assets/card-four-image.jpg"
-              class="card-four-image"
-              alt="" />
+              class="trending-card-image"
+              alt="A 3D printer pouring concrete for a residential home" />
             <h3 class="trending-card-title">
               Inside the World's First 3D-Printed Neighborhood
             </h3>
@@ -131,8 +129,16 @@
           action="https://structura.org/newsletters-signup"
           method="post"
           class="newsletter-form">
-          <input type="email" name="email" placeholder="Enter your email..." />
-          <input type="submit" name="submit" value="Submit" />
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email..."
+            required />
+          <input
+            type="submit"
+            name="submit"
+            value="Submit"
+            class="btn-submit" />
         </form>
       </section>
       <p>

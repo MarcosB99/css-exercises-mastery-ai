@@ -1,20 +1,11 @@
-/*Fonts import*/
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
-/*Smooth scrolling behavior*/
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
   }
 }
 
-@media (hover: hover) {
-  .nav-links li a:hover::after {
-    width: 100%;
-  }
-}
-
-/*Color Palette for Project*/
 :root {
   --main-background: #fafafa;
   --primary-text: #171717;
@@ -27,7 +18,6 @@
   --pure-black: #000000;
 }
 
-/*Universal reset*/
 *,
 *::after,
 *::before {
@@ -36,7 +26,6 @@
   padding: 0;
 }
 
-/*Setting up font-size*/
 body {
   font-size: 16px;
   background-color: var(--main-background);
@@ -69,6 +58,7 @@ body {
   font-size: 3.5rem;
   line-height: 1.15;
   font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .sidebar-title,
@@ -90,6 +80,7 @@ body {
   line-height: 1;
   text-transform: uppercase;
   font-weight: 700;
+  color: var(--accent-color); /* FIX: Added color to make categories pop */
 }
 
 header {
@@ -102,6 +93,7 @@ header {
   position: sticky;
   top: 0;
   background-color: #e5e5e5;
+  z-index: 100; /* FIX: Added z-index so it stays above images */
 }
 
 #navbar {
@@ -111,7 +103,8 @@ header {
 .nav-links {
   display: flex;
   list-style-type: none;
-  justify-content: space-between;
+  justify-content: flex-end; /* FIX: Adjusted from space-between for a cleaner look */
+  gap: 2rem;
 }
 
 .nav-links li a {
@@ -132,6 +125,12 @@ header {
   transition: width 0.3s ease;
 }
 
+@media (hover: hover) {
+  .nav-links li a:hover::after {
+    width: 100%;
+  }
+}
+
 .breaking-news {
   width: 100%;
   position: sticky;
@@ -139,10 +138,17 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30px;
+  min-height: 30px; /* FIX: Swapped height for min-height to allow text wrapping */
+  padding: 0.5rem 1rem; /* FIX: Added padding for wrapped text */
   background-color: var(--accent-color);
   color: var(--pure-white);
   gap: 5px;
+  z-index: 99;
+  text-align: center;
+}
+
+.red-breaking {
+  font-weight: bold;
 }
 
 main {
@@ -151,26 +157,21 @@ main {
   padding: 0 2rem;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  gap: 2rem; /* FIX: Added gap here instead of relying entirely on padding/borders */
+}
+
+#featured-article {
+  grid-column: span 8;
+  padding: 2rem 0;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 2rem;
 }
 
 .featured-image {
   width: 100%;
   object-fit: cover;
-  border-radius: 24px;
-}
-
-#featured-article {
-  grid-column: span 8;
-  padding: 0 2rem;
-  border-right: 2px solid var(--border-color);
-  border-bottom: 2px solid var(--border-color);
-  border-radius: 24px;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-}
-
-.headline {
-  margin-bottom: 0.5rem;
+  border-radius: 12px; /* FIX: Reduced radius slightly for a sharper magazine look */
+  margin-bottom: 1.5rem;
 }
 
 .excerpt {
@@ -179,80 +180,66 @@ main {
 
 .author {
   margin-bottom: 1rem;
+  font-style: italic;
 }
 
 #sidebar {
   grid-column: span 4;
-  padding: 1rem 2rem;
+  padding: 2rem 0;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2rem; /* FIX: Reduced gap for better flow */
 }
 
-.article-one,
-.article-two,
-.article-three {
+/* FIX: DRY CSS. Replaced multiple classes with one reusable class */
+.sidebar-article {
   border-bottom: 2px solid var(--border-color);
-  border-radius: 24px;
-  border-right: 2px solid var(--border-color);
-  padding: 1rem 2rem;
-  transition: all 0.3s ease;
+  padding-bottom: 1rem;
+  transition: transform 0.3s ease;
 }
 
-.article-one:hover,
-.article-two:hover,
-.article-three:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+.sidebar-article:hover {
+  transform: translateX(
+    5px
+  ); /* FIX: Y/X translation prevents clipping better than scale */
 }
 
 #trending-section {
   grid-column: span 12;
-  padding: 1rem 2rem;
-  text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 3rem;
+}
+
+.trending-title {
   margin-bottom: 1.5rem;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-color); /* FIX: Styled the underline */
 }
 
 .trending-grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem; /* FIX: Added gap for the grid */
 }
 
-.trending-title {
-  margin-bottom: 1.5rem;
-}
-
-.trending-title,
-.headline,
-.sidebar-title {
-  text-decoration: underline;
-}
-
-.card-one,
-.card-two,
-.card-three,
-.card-four {
-  border-right: 2px solid var(--border-color);
-  text-align: center;
-  padding: 0.25rem;
+/* FIX: DRY CSS. Replaced multiple numbered cards with a single component style */
+.trending-card {
+  text-align: left;
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.card-one:hover,
-.card-two:hover,
-.card-three:hover,
-.card-four:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+.trending-card:hover {
+  transform: translateY(-5px);
 }
 
-.card-one-image,
-.card-two-image,
-.card-three-image,
-.card-four-image {
+.trending-card-image {
   width: 100%;
   object-fit: cover;
   height: 200px;
+  border-radius: 8px;
 }
 
 footer {
@@ -262,99 +249,104 @@ footer {
   align-items: center;
   background-color: var(--primary-text);
   color: var(--pure-white);
-  padding: 2rem 0;
+  padding: 4rem 2rem; /* FIX: More breathing room */
   text-align: center;
   gap: 2rem;
 }
 
 .newsletter-form {
-  border: 1px solid var(--border-color);
-  padding: 1rem 2rem;
+  border: 1px solid var(--secondary-text); /* FIX: Subtler border */
+  padding: 2rem;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  justify-content: center;
   align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
-.newsletter-form > input {
-  width: 75%;
+.newsletter-form > input[type="email"] {
+  width: 100%;
   border-radius: 4px;
-  height: 1.5rem;
+  height: 2.5rem; /* FIX: Larger touch target */
   font-size: 1rem;
-  padding: 0 5px;
+  padding: 0 10px;
+  border: none;
+}
+
+.btn-submit {
+  background-color: var(--accent-color); /* FIX: Highlighted CTA */
+  color: var(--pure-white);
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%;
+}
+
+.btn-submit:hover {
+  background-color: #b46305;
 }
 
 .newsletters-title {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .newsletters-text {
   margin-bottom: 1.5rem;
+  color: #a3a3a3;
 }
 
-input[type="submit"] {
-  background-color: var(--main-background);
-  color: var(--primary-text);
+/* =========================================
+   MEDIA QUERIES 
+   ========================================= */
+
+@media screen and (max-width: 900px) {
+  /* Tablet layout adjustments */
+  main {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  /* FIX: Explicitly reset the spans to prevent layout blowout */
+  #featured-article,
+  #sidebar,
+  #trending-section {
+    grid-column: 1 / -1;
+  }
+
+  .trending-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media screen and (max-width: 768px) {
   header {
     flex-direction: column;
     height: auto;
+    padding: 1rem;
+    position: static; /* FIX: Un-stick the header on mobile to save screen real estate */
   }
 
   .breaking-news {
-    top: calc(header);
-    height: auto;
+    top: 0; /* FIX: Stick the breaking news banner to the absolute top instead */
+    font-size: 0.9rem;
   }
 
   .nav-links {
-    flex-direction: column;
+    margin-top: 1rem;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-  }
-
-  .nav-links li a {
-    text-decoration: underline;
-  }
-
-  main {
-    grid-template-columns: 1fr;
-  }
-
-  #sidebar {
-    grid-column: 1;
-  }
-
-  #trending-section {
-    grid-column: 1;
+    gap: 1rem;
   }
 
   .trending-grid-container {
     grid-template-columns: 1fr;
   }
 
-  .logo-text {
-    font-size: 2rem;
-  }
-
   .headline {
-    font-size: 2.25rem;
-  }
-
-  .sidebar-title,
-  .trending-title,
-  .newsletters-title {
-    font-size: 1.25rem;
-  }
-
-  .side-article-title,
-  .trending-card-title {
-    font-size: 1.125rem;
-  }
-
-  .category {
-    font-size: 0.75rem;
+    font-size: 2.5rem;
   }
 }
