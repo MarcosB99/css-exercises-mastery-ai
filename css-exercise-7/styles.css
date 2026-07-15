@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --main-background: #f1f5f9;
+  --pure-white: #fff;
+  --sidebar-background: #0f172a;
+  --primary-accent: #4f46e5;
+  --success-accent: #10b981;
+  --warning-accent: #f59e0b;
+  --heading-color: #0f172a;
+  --body-text-color: #64748b;
+  --border-color: #e2e8f0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Public Sans", sans-serif;
+  font-size: 16px;
+}
