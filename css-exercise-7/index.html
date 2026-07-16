@@ -12,29 +12,182 @@
   <body>
     <aside>
       <a href="./index.html" class="logo-text"
-        ><i class="fa-solid fa-bolt"></i>Nexus</a
+        ><i class="fa-solid fa-bolt"></i>
+        <span class="link-text">Nexus</span></a
       >
       <nav>
-        <ul>
+        <ul class="nav-links">
           <li>
-            <a href=""><i class="fa-solid fa-home"></i>Dashboard</a>
+            <a href=""
+              ><i class="fa-solid fa-home"></i>
+              <span class="link-text">Dashboard</span></a
+            >
           </li>
           <li>
-            <a href=""><i class="fa-solid fa-chart-pie"></i>Analytics</a>
+            <a href=""
+              ><i class="fa-solid fa-chart-pie"></i>
+              <span class="link-text">Analytics</span></a
+            >
           </li>
           <li>
-            <a href=""><i class="fa-solid fa-folder-open"></i>Projects</a>
+            <a href=""
+              ><i class="fa-solid fa-folder-open"></i>
+              <span class="link-text">Projects</span></a
+            >
           </li>
           <li>
-            <a href=""><i class="fa-solid fa-users"></i>Team Members</a>
+            <a href=""
+              ><i class="fa-solid fa-users"></i>
+              <span class="link-text">Team Members</span></a
+            >
           </li>
           <li>
-            <a href=""><i class="fa-solid fa-cog"></i>Settings</a>
+            <a href=""
+              ><i class="fa-solid fa-cog"></i>
+              <span class="link-text">Settings</span></a
+            >
           </li>
         </ul>
       </nav>
     </aside>
-    <main></main>
-    <footer></footer>
+    <main>
+      <header>
+        <div class="left-side">
+          <h1 class="page-title">Dashboard Overview</h1>
+        </div>
+        <div class="right-side">
+          <form action="https://www.nexus.com/reports" method="get">
+            <input
+              type="search"
+              name="search-bar"
+              id="search-bar"
+              placeholder="Search everything..." />
+          </form>
+          <i class="fa-solid fa-bell"></i>
+          <p>
+            <i class="fa-solid fa-user"></i> Jane Doe
+            <i class="fa-solid fa-chevron-down"></i>
+          </p>
+        </div>
+      </header>
+      <section id="statistics-section">
+        <article class="card">
+          <h2 class="card-title">Total Revenue</h2>
+          <p class="card-stat"><data value="45231">$45,231</data></p>
+          <p class="card-trend">
+            <data value="20.1" class="percentage green">+20.1%</data> from last
+            month
+          </p>
+        </article>
+        <article class="card">
+          <h2 class="card-title">Active Users</h2>
+          <p class="card-stat"><data value="2350">2,350</data></p>
+          <p class="card-trend">
+            <data value="15.5" class="percentaje gray">+15.5%</data> from last
+            month
+          </p>
+        </article>
+        <article class="card">
+          <h2 class="card-title">New Projects</h2>
+          <p class="card-stat"><data value="12">12</data></p>
+          <p class="card-trend">
+            <data value="2" class="percentage red">-2%</data> from last month
+          </p>
+        </article>
+        <article class="card">
+          <h2 class="card-title">Server Uptime</h2>
+          <p class="card-stat"><data value="99.9">99.9%</data></p>
+          <p class="card-trend green">All systems operational</p>
+        </article>
+      </section>
+      <section id="charts-section">
+        <article class="main-chart">
+          <p class="chart-title">Revenue Over Time</p>
+          <img
+            src="./assets/main-chart-image.png"
+            alt=""
+            class="main-chart-image" />
+        </article>
+        <article class="secondary-chart">
+          <p class="chart-title">Traffic Sources</p>
+          <img src="" alt="" class="secondary-chart-image" />
+        </article>
+      </section>
+      <section id="projects-section">
+        <article class="projects-table">
+          <p class="projects-title">Active Projects</p>
+          <table>
+            <tr>
+              <th scope="col">Project Name</th>
+              <th>Client</th>
+              <th>Status</th>
+              <th>Completion</th>
+            </tr>
+            <tr>
+              <td>E-commerce Redesign</td>
+              <td>Acme Corp</td>
+              <td class="red">In Progress</td>
+              <td>
+                65%
+                <div class="progress-bar">
+                  <div class="actual-progress"></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>iOS App Launch</td>
+              <td>Globex</td>
+              <td class="green">Completed</td>
+              <td>
+                100%
+                <div class="progress-bar">
+                  <div class="actual-progress"></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Marketing Site</td>
+              <td>Initech</td>
+              <td>Planning</td>
+              <td>
+                15%
+                <div class="progress-bar">
+                  <div class="actual-progress"></div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </article>
+        <article class="recent-activity">
+          <p class="recent-title">Recent Activity</p>
+          <ul class="recent-list">
+            <li class="recent-item">
+              <i class="fa-solid fa-check-circle"></i> Code deployed to
+              production.
+              <time datetime="2026-07-16T12:43:00-06:00" class="time-ago"
+                >2 hours ago</time
+              >
+            </li>
+            <li class="recent-item">
+              <i class="fa-solid fa-user-plus"></i> Sarah Jenkins joined the
+              team.
+              <time datetime="2026-07-16T09:43:00-06:00" class="time-ago"
+                >5 hours ago</time
+              >
+            </li>
+            <li class="recent-item">
+              <i class="fa-solid fa-file-invoice"></i> Invoice #4024 paid by
+              Acme Corp.
+              <time datetime="2026-07-15T14:43:00-06:00" class="time-ago"
+                >1 day ago</time
+              >
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2026 Nexus Dashboard. All rights reserved</p>
+    </footer>
   </body>
 </html>
