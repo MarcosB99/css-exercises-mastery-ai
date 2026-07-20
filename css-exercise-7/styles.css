@@ -26,6 +26,18 @@
   padding: 0;
 }
 
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 body {
   font-family: "Public Sans", sans-serif;
   font-size: 16px;
@@ -48,6 +60,10 @@ h2 {
   color: var(--heading-color);
 }
 
+.logo-text {
+  font-size: 1.5rem;
+}
+
 .card-stat {
   font-size: 2rem;
   font-weight: 700;
@@ -62,7 +78,16 @@ h2 {
 
 a {
   text-decoration: none;
+  color: #94a3b8;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  background-color: #1e293b;
   color: var(--pure-white);
+  border-radius: 8px;
+  box-shadow: inset 4px 0 0 0 #4f46e5;
 }
 
 aside {
@@ -71,12 +96,16 @@ aside {
   padding: 1.5rem;
   grid-column: 1;
   position: sticky;
-  height: 100vh;
+  height: 100dvh;
   top: 0;
 }
 
 .nav-links {
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 2.5rem;
 }
 
 header {
@@ -148,7 +177,7 @@ header {
 #projects-section {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 24px;
   padding: 3rem 2.5rem;
 }
@@ -157,55 +186,36 @@ header {
   margin-bottom: 1.5rem;
 }
 
-.main-chart {
-  grid-column: span 2;
-  text-align: center;
+.panel {
+  background: var(--pure-white);
+  border-radius: 8px;
   border: 1px solid var(--border-color);
   padding: 24px;
-  border-radius: 8px;
-}
-
-.main-chart-image {
-  width: 90%;
-  height: 400px;
-  object-fit: fill;
-  border: 1px dashed var(--border-color);
-  padding: 5px;
-  border-radius: 8px;
   box-shadow:
     0 1px 3px 0 rgba(0, 0, 0, 0.1),
     0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
 
-.secondary-chart {
+.main-chart {
+  grid-column: span 2;
   text-align: center;
-  border: 1px solid var(--border-color);
-  padding: 24px;
-  border-radius: 8px;
 }
 
+.main-chart-image,
 .secondary-chart-image {
   width: 90%;
   height: 400px;
   object-fit: fill;
-  border: 1px dashed var(--border-color);
   padding: 5px;
   border-radius: 8px;
-  box-shadow:
-    0 1px 3px 0 rgba(0, 0, 0, 0.1),
-    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.secondary-chart {
+  text-align: center;
 }
 
 .projects-table {
   grid-column: span 2;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  text-align: center;
-  padding: 24px;
-  background-color: var(--pure-white);
-  box-shadow:
-    0 1px 3px 0 rgba(0, 0, 0, 0.1),
-    0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
 
 .projects-title {
@@ -222,8 +232,6 @@ header {
 }
 
 .project-table tr td {
-  border-right: 1px solid var(--border-color);
-  border-left: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -238,43 +246,31 @@ header {
   height: 16px;
   background-color: var(--border-color, #e2e8f0);
   overflow: hidden;
+  border-radius: 8px;
 }
 
-.project-table tr:nth-of-type(2) td div.actual-progress {
+.actual-progress {
   display: block;
-  width: 65%;
   height: 100%;
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+.progress-warning {
   background-color: var(--warning-accent);
-  transition: width 0.3s ease;
 }
 
-.project-table tr:nth-of-type(3) td div.actual-progress {
-  display: block;
-  width: 100%;
-  height: 100%;
+.progress-success {
   background-color: var(--success-accent);
-  transition: width 0.3s ease;
 }
 
-.project-table tr:nth-of-type(4) td div.actual-progress {
-  display: block;
-  width: 15%;
-  height: 100%;
+.progress-planning {
   background-color: var(--body-text-color);
-  transition: width 0.3s ease;
 }
 
-.project-table tr td:hover,
-.project-table tr th:hover {
+tr:hover td {
   background-color: var(--border-color);
   transition: background-color 0.3s ease;
-}
-
-.recent-activity {
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 24px;
-  background-color: var(--pure-white);
 }
 
 .recent-title {
@@ -296,4 +292,61 @@ header {
 .recent-list li:hover {
   background-color: #e2e8f0;
   transition: background 0.3s ease;
+  border-radius: 6px;
+}
+
+footer {
+  width: calc(100vw - 250px);
+  text-align: center;
+  margin-left: 250px;
+  padding: 2.5rem 0;
+}
+
+@media (max-width: 768px) {
+  body {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+  }
+
+  aside {
+    width: 80px;
+    padding: 1rem;
+  }
+
+  a span {
+    display: none;
+  }
+
+  table,
+  thead,
+  tbody,
+  tr,
+  td {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  td {
+    text-align: right;
+  }
+
+  td::before {
+    content: attr(data-label);
+  }
+
+  .search-form input {
+    display: none;
+  }
+
+  .right-side {
+    display: none;
+  }
+
+  #charts-section,
+  #projects-section {
+    grid-template-columns: 1fr;
+  }
 }

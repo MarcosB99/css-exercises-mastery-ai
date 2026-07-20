@@ -12,38 +12,40 @@
   <body>
     <aside>
       <a href="./index.html" class="logo-text"
-        ><i class="fa-solid fa-bolt"></i>
+        ><i class="fa-solid fa-bolt" aria-hidden="true"></i>
         <span class="link-text">Nexus</span></a
       >
       <nav>
         <ul class="nav-links">
           <li>
-            <a href=""
-              ><i class="fa-solid fa-home"></i>
+            <a href="https://www.nexus.com/dashboard" rel="noopener noreferrer"
+              ><i class="fa-solid fa-home" aria-hidden="true"></i>
               <span class="link-text">Dashboard</span></a
             >
           </li>
           <li>
-            <a href=""
-              ><i class="fa-solid fa-chart-pie"></i>
+            <a href="https://www.nexus.com/analytics" rel="noopener noreferrer"
+              ><i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
               <span class="link-text">Analytics</span></a
             >
           </li>
           <li>
-            <a href=""
-              ><i class="fa-solid fa-folder-open"></i>
+            <a href="https://www.nexus.com/projects" rel="noopener noreferrer"
+              ><i class="fa-solid fa-folder-open" aria-hidden="true"></i>
               <span class="link-text">Projects</span></a
             >
           </li>
           <li>
-            <a href=""
-              ><i class="fa-solid fa-users"></i>
+            <a
+              href="https://www.nexus.com/team-members"
+              rel="noopener noreferrer"
+              ><i class="fa-solid fa-users" aria-hidden="true"></i>
               <span class="link-text">Team Members</span></a
             >
           </li>
           <li>
-            <a href=""
-              ><i class="fa-solid fa-cog"></i>
+            <a href="https://www.nexus.com/settings" rel="noopener noreferrer"
+              ><i class="fa-solid fa-cog" aria-hidden="true"></i>
               <span class="link-text">Settings</span></a
             >
           </li>
@@ -60,6 +62,9 @@
             action="https://www.nexus.com/reports"
             method="get"
             class="search-form">
+            <label for="search-bar" class="visually-hidden"
+              >Search Dashboard</label
+            >
             <input
               type="search"
               name="search-bar"
@@ -86,7 +91,7 @@
           <h2 class="card-title">Active Users</h2>
           <p class="card-stat"><data value="2350">2,350</data></p>
           <p class="card-trend">
-            <data value="15.5" class="percentaje gray">+15.5%</data> from last
+            <data value="15.5" class="percentage gray">+15.5%</data> from last
             month
           </p>
         </article>
@@ -104,15 +109,15 @@
         </article>
       </section>
       <section id="charts-section">
-        <article class="main-chart">
-          <p class="chart-title">Revenue Over Time</p>
+        <article class="panel main-chart">
+          <h2 class="chart-title">Revenue Over Time</h2>
           <img
             src="./assets/main-chart-image.png"
             alt="Placeholder image of a line graph."
             class="main-chart-image" />
         </article>
-        <article class="secondary-chart">
-          <p class="chart-title">Traffic Sources</p>
+        <article class="panel secondary-chart">
+          <h2 class="chart-title">Traffic Sources</h2>
           <img
             src="./assets/secondary-chart-image.jpeg"
             alt="Placeholder for a donut chart (sketch the segments: Direct, Organic, Referral)."
@@ -120,52 +125,62 @@
         </article>
       </section>
       <section id="projects-section">
-        <article class="projects-table">
-          <p class="projects-title">Active Projects</p>
+        <article class="panel projects-table">
+          <h2 class="projects-title">Active Projects</h2>
           <table class="project-table">
-            <tr>
-              <th scope="col">Project Name</th>
-              <th>Client</th>
-              <th>Status</th>
-              <th>Completion</th>
-            </tr>
-            <tr>
-              <td>E-commerce Redesign</td>
-              <td>Acme Corp</td>
-              <td class="red">In Progress</td>
-              <td>
-                65%
-                <div class="progress-bar">
-                  <div class="actual-progress"></div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>iOS App Launch</td>
-              <td>Globex</td>
-              <td class="green">Completed</td>
-              <td>
-                100%
-                <div class="progress-bar">
-                  <div class="actual-progress"></div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Marketing Site</td>
-              <td>Initech</td>
-              <td>Planning</td>
-              <td>
-                15%
-                <div class="progress-bar">
-                  <div class="actual-progress"></div>
-                </div>
-              </td>
-            </tr>
+            <thead>
+              <tr>
+                <th scope="col">Project Name</th>
+                <th scope="col">Client</th>
+                <th scope="col">Status</th>
+                <th scope="col">Completion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Project Name: ">E-commerce Redesign</td>
+                <td data-label="Client: ">Acme Corp</td>
+                <td class="red">In Progress</td>
+                <td>
+                  65%
+                  <div class="progress-bar">
+                    <div
+                      class="actual-progress progress-warning"
+                      style="width: 65%"></div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td data-label="Project Name: ">iOS App Launch</td>
+                <td data-label="Client: ">Globex</td>
+                <td class="green">Completed</td>
+                <td>
+                  100%
+                  <div class="progress-bar">
+                    <div
+                      class="actual-progress progress-success"
+                      style="width: 100%"></div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td data-label="Project Name: ">Marketing Site</td>
+                <td data-label="Client: ">Initech</td>
+                <td>Planning</td>
+                <td>
+                  15%
+                  <div class="progress-bar">
+                    <div
+                      class="actual-progress progress-planning"
+                      style="width: 15%"></div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </article>
-        <article class="recent-activity">
-          <p class="recent-title">Recent Activity</p>
+        <article class="panel recent-activity">
+          <h2 class="recent-title">Recent Activity</h2>
           <ul class="recent-list">
             <li class="recent-item">
               <i class="fa-solid fa-check-circle"></i> Code deployed to
