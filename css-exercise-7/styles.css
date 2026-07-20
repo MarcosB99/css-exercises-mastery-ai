@@ -122,6 +122,7 @@ header {
   height: 1.75rem;
   padding: 0.5rem 2rem 0.5rem 0.5rem;
   border-radius: 8px;
+  border: 1px solid var(--border-color); /* FIX: Added slight border for visibility */
 }
 
 .right-side {
@@ -205,7 +206,7 @@ header {
 .secondary-chart-image {
   width: 90%;
   height: 400px;
-  object-fit: fill;
+  object-fit: fill; /* Consider object-fit: contain for charts to prevent distortion */
   padding: 5px;
   border-radius: 8px;
 }
@@ -225,6 +226,7 @@ header {
 .project-table {
   width: 100%;
   margin: 0 auto;
+  border-collapse: collapse; /* FIX: Added border-collapse to ensure clean table borders */
 }
 
 .project-table tr:first-child th {
@@ -237,7 +239,8 @@ header {
 
 .project-table tr th,
 .project-table tr td {
-  padding: 0.5rem;
+  padding: 1rem 0.5rem; /* FIX: Added more vertical padding for readability */
+  text-align: left; /* FIX: Ensure consistent alignment */
 }
 
 .project-table tr td div.progress-bar {
@@ -247,6 +250,7 @@ header {
   background-color: var(--border-color, #e2e8f0);
   overflow: hidden;
   border-radius: 8px;
+  margin-top: 0.5rem; /* FIX: Separate the bar slightly from the text */
 }
 
 .actual-progress {
@@ -269,7 +273,7 @@ header {
 }
 
 tr:hover td {
-  background-color: var(--border-color);
+  background-color: var(--main-background); /* FIX: Softened hover color */
   transition: background-color 0.3s ease;
 }
 
@@ -287,6 +291,8 @@ tr:hover td {
 
 .recent-list li {
   padding: 0.5rem;
+  display: flex; /* FIX: Flex layout to properly align the icon, text, and time */
+  flex-direction: column;
 }
 
 .recent-list li:hover {
@@ -295,12 +301,16 @@ tr:hover td {
   border-radius: 6px;
 }
 
+/* FIX: Refactored Footer layout to properly utilize CSS Grid */
 footer {
-  width: calc(100vw - 250px);
+  grid-column: 2; /* Tell it to sit in the 2nd column (the main content column) */
   text-align: center;
-  margin-left: 250px;
   padding: 2.5rem 0;
 }
+
+/* =========================================
+   MEDIA QUERIES 
+   ========================================= */
 
 @media (max-width: 768px) {
   body {
@@ -329,24 +339,38 @@ footer {
     display: none;
   }
 
+  /* FIX: Flex layout formats the injected label and data beautifully */
   td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     text-align: right;
+    border-bottom: 1px solid var(--border-color);
   }
 
   td::before {
     content: attr(data-label);
+    font-weight: bold; /* FIX: Emphasize the generated label */
+    color: var(--heading-color);
   }
 
-  .search-form input {
+  /* FIX: Target just the search form to hide, leaving the profile/notifications intact */
+  .search-form {
     display: none;
   }
 
   .right-side {
-    display: none;
+    width: auto; /* FIX: Reset width so it doesn't force unnecessary space */
   }
 
   #charts-section,
   #projects-section {
     grid-template-columns: 1fr;
+  }
+
+  /* FIX: Reset the spans so the panels don't overflow the 1-column grid */
+  .main-chart,
+  .projects-table {
+    grid-column: 1 / -1;
   }
 }
