@@ -3,8 +3,167 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/579053ac65.js"
+      crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles.css" />
-    <title>Document</title>
+    <title>Personal Portfolio</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <nav id="navbar">
+        <a href="#hero-section" class="logo-text">MB</a>
+        <ul class="nav-links">
+          <li><a href="#about-section">About</a></li>
+          <li><a href="#skills-section">Skills</a></li>
+          <li><a href="#projects-section">Projects</a></li>
+          <li><a href="#timeline-section">Timeline</a></li>
+          <li><a href="#contact-section">Contact</a></li>
+        </ul>
+        <button type="button" class="resume-btn">Resume</button>
+      </nav>
+    </header>
+    <main>
+      <section id="hero-section">
+        <div class="reverse-wrapper">
+          <h1 class="headline">Marcos, Developer</h1>
+          <p class="tagline">Hi, my name is</p>
+        </div>
+        <h2 class="sub-headline">I build exceptional digital experiences.</h2>
+        <p class="description">
+          I'm a front-end engineer specializing in building responsive,
+          accessible, and visually stunning web applications.
+        </p>
+        <div class="btn-wrapper">
+          <a href="#projects-section" class="projects-btn">View Projects</a>
+          <a href="#contact-section" class="contact-btn">Get In Touch</a>
+        </div>
+      </section>
+      <section id="about-section">
+        <div class="left-side">
+          <h2 class="about-me-title">About Me</h2>
+          <p class="about-description">
+            I am a passionate developer who bridges the gap between engineering
+            and design. When I'm not writing code, I'm analyzing UI patterns or
+            learning the latest CSS architectures.
+          </p>
+        </div>
+        <img
+          src="./assets/profile-picture.jpeg"
+          alt="Professional headshot of Marcos Barrientos"
+          class="profile-image" />
+      </section>
+      <section id="skills-section">
+        <h2 class="skills-title">My Dev Skills</h2>
+        <ul class="skills-list">
+          <li><i class="fa-brands fa-html5"></i>HTML5</li>
+          <li><i class="fa-brands fa-css3"></i>CSS3</li>
+          <li><i class="fa-brands fa-js"></i>JavaScript (ES6+)</li>
+          <li><i class="fa-brands fa-react"></i>React</li>
+          <li>
+            <i class="fa-solid fa-table-cells-large"></i>CSS Grid & Flexbox
+          </li>
+          <li><i class="fa-solid fa-pencil-ruler"></i>UI/UX Design</li>
+          <li>
+            <i class="fa-solid fa-mobile-screen-button"></i>Responsive
+            Architecture
+          </li>
+          <li><i class="fa-brands fa-git-alt"></i>Git & GitHub</li>
+        </ul>
+      </section>
+      <section id="projects-section">
+        <h2 class="projects-title">My Projects</h2>
+        <div class="grid-container">
+          <a
+            href="https://github.com/MarcosB99/css-exercises-mastery-ai/tree/main/css-exercise-7"
+            rel="noopener noreferrer"
+            target="_blank"
+            ><span class="visually-hidden">(Opens in a new window)</span>
+            <article class="project-card">
+              <img
+                src="./assets/nexus-dashboard.png"
+                alt="Placheholder of Nexus Dashboard"
+                class="project-picture" />
+              <h3 class="project-title">Nexus Admin Dashboard</h3>
+              <p class="project-tags">CSS Grid, Flexbox, UI Design</p>
+            </article>
+          </a>
+          <a
+            href="https://github.com/MarcosB99/css-exercises-mastery-ai/tree/main/css-exercise-6"
+            rel="noopener noreferrer"
+            target="_blank"
+            ><span class="visually-hidden">(Opens in a new window)</span>
+            <article class="project-card">
+              <img
+                src="./assets/structura-magazine.png"
+                alt="Placeholder of Structura Magazine"
+                class="project-picture" />
+              <h3 class="project-title">Structura Magazine</h3>
+              <p class="project-tags">Architecture, Editorial Layout</p>
+            </article></a
+          >
+          <a
+            href="https://github.com/MarcosB99/css-exercises-mastery-ai/tree/main/css-exercise-5"
+            rel="noopener noreferrer"
+            target="_blank"
+            ><span class="visually-hidden">(Opens in a new window)</span>
+            <article class="project-card">
+              <img
+                src="./assets/headphones-landing-page.png"
+                alt="Placeholder of Headphones Landing page"
+                class="project-picture" />
+              <h3 class="project-title">Aura Headphones</h3>
+              <p class="project-tags">Landing Page, Dark Mode, Gradients</p>
+            </article>
+          </a>
+          <a
+            href="https://github.com/MarcosB99/css-exercises-mastery-ai/tree/main/css-exercise-4"
+            rel="noopener noreferrer"
+            target="_blank"
+            ><span class="visually-hidden">(Opens in a new window)</span>
+            <article class="project-card">
+              <img
+                src="./assets/photo-gallery.png"
+                alt="Placeholder of Photo Gallery"
+                class="project-picture" />
+              <h3 class="project-title">Photo Gallery</h3>
+              <p class="project-tags">CSS Grid, UI/UX Design, Responsive</p>
+            </article>
+          </a>
+        </div>
+      </section>
+      <section id="timeline-section">
+        <h2 class="timeline-title">My Timeline</h2>
+        <div class="timeline-container">
+          <article class="timeline-item">
+            <i class="fa-solid fa-circle"></i>
+            <div class="timeline-content">
+              <h3 class="timeline-title">2026</h3>
+              <p class="timeline-description">
+                Mastered Advanced CSS Architectures.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <i class="fa-solid fa-circle"></i>
+            <div class="timeline-content">
+              <h3 class="timeline-title">2025</h3>
+              <p class="timeline-description">
+                Built first full-stack application.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <i class="fa-solid fa-circle"></i>
+            <div class="timeline-content">
+              <h3 class="timeline-title">2026</h3>
+              <p class="timeline-description">
+                Wrote first "Hello, World!" in HTML.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
