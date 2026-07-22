@@ -10,6 +10,9 @@
     <title>Personal Portfolio</title>
   </head>
   <body>
+    <a href="#main" class="skip-link" class="visually-hidden">
+      Skip to content
+    </a>
     <header>
       <nav id="navbar">
         <a href="#hero-section" class="logo-text">MB</a>
@@ -20,7 +23,7 @@
           <li><a href="#timeline-section">Timeline</a></li>
           <li><a href="#contact-section">Contact</a></li>
         </ul>
-        <button type="button" class="resume-btn">Resume</button>
+        <button type="button" class="btn resume-btn">Resume</button>
       </nav>
     </header>
     <main>
@@ -136,7 +139,7 @@
         <h2 class="timeline-title">My Timeline</h2>
         <div class="timeline-container">
           <article class="timeline-item">
-            <i class="fa-solid fa-circle"></i>
+            <div class="timeline-dot"></div>
             <div class="timeline-content">
               <h3 class="timeline-title">2026</h3>
               <p class="timeline-description">
@@ -145,7 +148,7 @@
             </div>
           </article>
           <article class="timeline-item">
-            <i class="fa-solid fa-circle"></i>
+            <div class="timeline-dot"></div>
             <div class="timeline-content">
               <h3 class="timeline-title">2025</h3>
               <p class="timeline-description">
@@ -154,7 +157,7 @@
             </div>
           </article>
           <article class="timeline-item">
-            <i class="fa-solid fa-circle"></i>
+            <div class="timeline-dot"></div>
             <div class="timeline-content">
               <h3 class="timeline-title">2026</h3>
               <p class="timeline-description">
@@ -163,6 +166,37 @@
             </div>
           </article>
         </div>
+      </section>
+      <section id="contact-section">
+        <h2 class="contact-title">Let's build something together</h2>
+        <p class="contact-paragraph">
+          I'm currently looking for new opportunities. Whether you have a
+          question or just want to say hi, my inbox is always open.
+        </p>
+        <form
+          action="https://www.mb.contact.com"
+          method="post"
+          class="contact-form">
+          <label for="name">Name:</label>
+          <input
+            autocomplete="name"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter your name..."
+            required />
+          <label for="email">Email Address:</label
+          ><input
+            autocomplete="email"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email..."
+            required />
+          <label for="message">Enter your message:</label
+          ><textarea name="message" id="message" rows="10" required></textarea>
+          <input type="submit" value="Send message" class="btn send-message" />
+        </form>
       </section>
     </main>
   </body>
