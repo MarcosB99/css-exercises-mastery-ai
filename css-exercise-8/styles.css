@@ -70,6 +70,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 50;
+  -webkit-backdrop-filter: blur(10px); /* FIX: Added Safari support */
   backdrop-filter: blur(10px);
   background-color: rgba(10, 10, 10, 0.8);
   height: 70px;
@@ -164,6 +165,12 @@ nav > .resume-btn,
   color: var(--main-background);
   transform: translateY(-2px);
   box-shadow: 0 10px 20px -5px rgba(20, 184, 166, 0.4);
+}
+
+/* FIX: Added an outline specifically for keyboard focus to maintain WCAG contrast ratios */
+.btn:focus-visible {
+  outline: 2px solid var(--primary-text);
+  outline-offset: 4px;
 }
 
 main {
@@ -268,10 +275,12 @@ section {
 .project-card {
   text-align: center;
   border: 2px solid var(--border-color);
-  padding: 1rem 0.5rem;
+  padding: 1rem; /* FIX: Evened out the padding to match standard cards */
   border-radius: var(--radius);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
+  display: flex; /* FIX: Added flexbox to easily handle spacing if titles are different lengths */
+  flex-direction: column;
 }
 
 .project-card:hover,
@@ -283,10 +292,12 @@ section {
 }
 
 .project-picture {
-  width: min(100%, 420px);
+  width: 100%;
   border-radius: var(--radius);
   display: block;
-  height: auto;
+  aspect-ratio: 16 / 9; /* FIX: Added aspect ratio so every card is identical */
+  object-fit: cover; /* FIX: Ensures images don't stretch */
+  margin-bottom: 1rem; /* FIX: Adds breathing room before the title */
 }
 
 .project-tags {
@@ -294,6 +305,7 @@ section {
   font-weight: 500;
   line-height: 1;
   color: var(--secondary-text);
+  margin-top: auto; /* FIX: Pushes tags to the bottom even if titles wrap */
 }
 
 #timeline-section {
@@ -302,6 +314,7 @@ section {
 
 .timeline-title {
   margin-top: 2.5rem;
+  margin-bottom: 3rem; /* FIX: Added margin to separate title from the timeline */
 }
 
 .timeline-container {
@@ -364,32 +377,41 @@ section {
   align-items: center;
 }
 
+.contact-title {
+  margin-bottom: 1rem;
+}
+
+.contact-paragraph {
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
   width: min(100%, 700px);
   gap: 15px;
   border: 2px solid var(--secondary-accent);
-  align-items: center;
-  padding: 2rem 0;
+  padding: 2rem; /* FIX: Simplified padding */
   border-radius: var(--radius);
 }
 
-.contact-form > * {
-  width: 50%;
-}
+/* FIX: Removed the .contact-form > * wildcard width rule to allow labels to flow naturally */
 
 .contact-form > label {
-  margin-bottom: -10px;
+  margin-bottom: -5px; /* FIX: Slightly reduced negative margin */
   color: var(--primary-text);
   border-bottom: 1px solid var(--primary-accent);
+  align-self: flex-start; /* FIX: Keeps labels left-aligned and neat */
 }
 
 .contact-form > input:not(.send-message),
 .contact-form > textarea {
+  width: 100%; /* FIX: Explicitly sizing inputs instead of everything */
   border-radius: var(--radius);
   font-size: 1rem;
-  padding: 0.5rem;
+  padding: 0.75rem; /* FIX: Slightly increased padding for better click targets */
   font-family: "Inter", sans-serif;
   background-color: var(--surface-cards-section);
   color: var(--primary-text);
@@ -400,6 +422,12 @@ section {
 .contact-form > textarea:focus {
   border-bottom: 2px solid var(--primary-accent);
   outline: none;
+}
+
+.contact-form > .send-message {
+  align-self: center; /* FIX: Centers the button beautifully */
+  margin-top: 1rem;
+  width: 50%;
 }
 
 @media (max-width: 900px) {
@@ -453,10 +481,6 @@ section {
   .contact-form {
     width: 95%;
   }
-
-  .contact-form > * {
-    width: 90%;
-  }
 }
 
 @media (max-width: 600px) {
@@ -475,5 +499,9 @@ section {
 
   .btn-wrapper > a {
     text-align: center;
+  }
+
+  .contact-form > .send-message {
+    width: 100%; /* FIX: Full width button on small mobile screens */
   }
 }
