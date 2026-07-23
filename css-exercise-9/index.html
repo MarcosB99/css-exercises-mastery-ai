@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script
+      src="https://kit.fontawesome.com/579053ac65.js"
+      crossorigin="anonymous"></script>
+    <title>Voltix | Homepage</title>
+  </head>
+  <body>
+    <a href="#main-content" class="sr-only"> Skip to content </a>
+    <div class="announcement-bar">
+      <p class="announcement-content">
+        <i class="fa-solid fa-bolt" aria-hidden="true"></i>Free 2-Day Shipping
+        on all orders over $150. Shop the Summer Sale.
+      </p>
+    </div>
+    <header>
+      <nav id="navbar">
+        <div class="top-row">
+          <a href="./index.html" class="logo-text">Voltix</a>
+          <form action="https://www.voltix.com/products" method="get">
+            <label for="search" class="sr-only">Search</label>
+            <input
+              type="search"
+              id="search"
+              name="search"
+              placeholder="Search for laptops, audio, etc..."
+              aria-label="Search" />
+            <button type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+          <div class="profile-icons">
+            <i class="fa-solid fa-user nav-icon"></i>
+            <div class="cart-icon">
+              <i
+                class="fa-solid fa-cart-shopping nav-icon"
+                aria-hidden="true"></i>
+              <span class="notification-badge">3</span>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-row">
+          <ul class="nav-links">
+            <li><a href="#">Laptops</a></li>
+            <li><a href="#">Smartphones</a></li>
+            <li><a href="#">Audio</a></li>
+            <li><a href="#">Wearables</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Deals</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main id="main-content">
+      <section id="hero-section">
+        <div class="left-side">
+          <div class="reverse-wrap">
+            <h1 class="headline">The Voltix Blade Pro. Outperform the Rest</h1>
+            <p class="tagline">next-gen processing</p>
+          </div>
+          <p class="description">
+            Experience desktop-level power in a 14-inch chassis. Engineered for
+            creators and gamers who demand absolute perfection.
+          </p>
+          <button class="purchase-btn" type="button">Shop the Blade Pro</button>
+        </div>
+        <div class="right-side">
+          <img
+            src="./assets/hero-image.png"
+            alt="A sleek, open laptop floating at a slight angle"
+            class="hero-image"
+            loading="lazy" />
+        </div>
+      </section>
+      <section id="categories-section">
+        <h2 class="categories-title">Browse by Category</h2>
+        <ul class="bento-grid">
+          <li class="bento-box item-1"><a href=""></a></li>
+          <li class="bento-box item-2"><a href=""></a></li>
+          <li class="bento-box item-3"><a href=""></a></li>
+          <li class="bento-box item-4"><a href=""></a></li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,234 @@
+/*Importing fonts for project*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/*Setting up the color palette for project*/
+:root {
+  --pure-white: #ffffff;
+  --background-section: #f8fafc;
+  --primary-text: #0f172a;
+  --secondary-text: #475569;
+  --brand-primary-cta: #2563eb;
+  --hover-state: #1d4ed8;
+  --urgent-sale-accent: #dc2626;
+  --rating-stars: #f59e0b;
+  --border-color: #e2e8f0;
+}
+
+/*Project global reset*/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: var(--primary-text);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-text);
+}
+
+.nav-icon:hover {
+  cursor: pointer;
+}
+
+/*Setting up sr-only*/
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/*Announcement bar section*/
+.announcement-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 0;
+  background-color: var(--primary-text);
+  color: var(--pure-white);
+}
+
+/*Header section*/
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--pure-white);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.25rem 1.5rem;
+  width: 100%;
+}
+
+/*Header top row section*/
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.logo-text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+input[type="search"] {
+  width: 400px;
+  border-radius: 99px;
+  padding: 0.75rem 1.5rem;
+}
+
+.cart-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--urgent-sale-accent);
+  color: var(--pure-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/*Header bottom row*/
+.bottom-row {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style-type: none;
+}
+
+.nav-links a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--hover-state);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/*Main section*/
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/*Hero section*/
+
+#hero-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 5rem 2rem;
+  gap: 4rem;
+  align-items: center;
+  background-color: var(--background-section);
+}
+
+.left-side {
+  text-align: justify;
+}
+
+.description,
+.reverse-wrap {
+  margin-bottom: 1.25rem;
+}
+
+.purchase-btn {
+  background-color: var(--brand-primary-cta);
+  color: var(--pure-white);
+  padding: 16px 32px;
+  border-radius: 6px;
+  display: block;
+  margin: 0 auto;
+  border: none;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.purchase-btn:hover {
+  background-color: var(--hover-state);
+  font-weight: 600;
+}
+
+.reverse-wrap {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+}
+
+.headline {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--primary-text);
+}
+
+.tagline {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  color: var(--brand-primary-cta);
+  font-weight: 600;
+}
+
+.right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-image:hover {
+  transform: scale(1.05);
+}
+
+/*Categories section*/
+
+@media (max-width: 768px) {
+  #hero-section {
+    grid-template-columns: 1fr;
+  }
+}
