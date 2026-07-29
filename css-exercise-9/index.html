@@ -2,6 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Shop the Voltix Blade Pro and next-gen audio, wearables, and accessories. Experience desktop-level power today." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" />
     <script
@@ -29,17 +32,24 @@
               name="search"
               placeholder="Search for laptops, audio, etc..."
               aria-label="Search" />
-            <button type="submit">
+            <button type="submit" class="search-btn btn">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </form>
           <div class="profile-icons">
-            <i class="fa-solid fa-user nav-icon"></i>
+            <a href="#" class="user-icon" aria-label="Check your user settings"
+              ><i class="fa-solid fa-user nav-icon" aria-hidden="true"></i
+            ></a>
             <div class="cart-icon">
-              <i
-                class="fa-solid fa-cart-shopping nav-icon"
-                aria-hidden="true"></i>
-              <span class="notification-badge">3</span>
+              <a
+                href="#"
+                class="shop-cart-icon"
+                aria-label="View your Shopping Cart"
+                ><i
+                  class="fa-solid fa-cart-shopping nav-icon"
+                  aria-hidden="true"></i>
+                <span class="notification-badge">3</span></a
+              >
             </div>
           </div>
         </div>
@@ -66,14 +76,16 @@
             Experience desktop-level power in a 14-inch chassis. Engineered for
             creators and gamers who demand absolute perfection.
           </p>
-          <button class="purchase-btn" type="button">Shop the Blade Pro</button>
+          <button class="purchase-btn btn" type="button">
+            Shop the Blade Pro
+          </button>
         </div>
         <div class="right-side">
           <img
             src="./assets/hero-image.png"
             alt="A sleek, open laptop floating at a slight angle"
             class="hero-image"
-            loading="lazy" />
+            loading="eager" />
         </div>
       </section>
       <section id="categories-section">
@@ -103,6 +115,7 @@
                 <img
                   src="./assets/card-image-1.jpeg"
                   alt="Sony WH-1000XM6 wireless Headphones"
+                  loading="lazy"
                   class="card-image" />
               </figure>
               <div class="content-container">
@@ -116,17 +129,24 @@
                   ></span>
                   +275
                 </p>
-                <h3 class="card-title">Sony WH-1000XM6</h3>
+                <a
+                  href="/products/sony-wh-1000xm6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View product details for Sony WH-1000XM6 (opens in a new tab)">
+                  <h3 class="card-title">Sony WH-1000XM6</h3>
+                </a>
                 <p class="price">
                   <span class="current-price"
                     ><data value="449.99">$449.99</data></span
                   >
                   <span class="old-price"><s>$549.99</s></span>
                 </p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart btn">Add to Cart</button>
               </div>
             </article>
           </li>
+
           <li>
             <article class="card">
               <p class="sale-badge">Hot Sale</p>
@@ -134,6 +154,7 @@
                 <img
                   src="./assets/card-images-2.jpeg"
                   alt="Apple AirPods Pro (2nd Gen)"
+                  loading="lazy"
                   class="card-image" />
               </figure>
               <div class="content-container">
@@ -147,17 +168,24 @@
                   ></span>
                   +43
                 </p>
-                <h3 class="card-title">Apple AirPods Pro (2nd Gen)</h3>
+                <a
+                  href="/products/apple-airpods-pro-2nd-gen"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View product details for Apple AirPods Pro (2nd Gen) (opens in a new tab)">
+                  <h3 class="card-title">Apple AirPods Pro (2nd Gen)</h3>
+                </a>
                 <p class="price">
                   <span class="current-price"
                     ><data value="249.99">$249.99</data></span
                   >
                   <span class="old-price"><s>$299.99</s></span>
                 </p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart btn">Add to Cart</button>
               </div>
             </article>
           </li>
+
           <li>
             <article class="card">
               <p class="sale-badge">Hot Sale</p>
@@ -165,6 +193,7 @@
                 <img
                   src="./assets/card-image-3.jpeg"
                   alt="Sennheiser HD 560S"
+                  loading="lazy"
                   class="card-image" />
               </figure>
               <div class="content-container">
@@ -178,17 +207,24 @@
                   ></span>
                   +124
                 </p>
-                <h3 class="card-title">Sennheiser HD 560S</h3>
+                <a
+                  href="/products/sennheiser-hd-560s"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View product details for Sennheiser HD 560S (opens in a new tab)">
+                  <h3 class="card-title">Sennheiser HD 560S</h3>
+                </a>
                 <p class="price">
                   <span class="current-price"
                     ><data value="199.95">$199.95</data></span
                   >
                   <span class="old-price"><s>$249.95</s></span>
                 </p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart btn">Add to Cart</button>
               </div>
             </article>
           </li>
+
           <li>
             <article class="card">
               <p class="sale-badge">Hot Sale</p>
@@ -196,6 +232,7 @@
                 <img
                   src="./assets/card-image-4.jpeg"
                   alt="JBL Tune 770NC"
+                  loading="lazy"
                   class="card-image" />
               </figure>
               <div class="content-container">
@@ -209,17 +246,24 @@
                   ></span>
                   +170
                 </p>
-                <h3 class="card-title">JBL Tune 770NC</h3>
+                <a
+                  href="/products/jbl-tune-770nc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View product details for JBL Tune 770NC (opens in a new tab)">
+                  <h3 class="card-title">JBL Tune 770NC</h3>
+                </a>
                 <p class="price">
                   <span class="current-price"
                     ><data value="129.95">$129.95</data></span
                   >
                   <span class="old-price"><s>$159.95</s></span>
                 </p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart btn">Add to Cart</button>
               </div>
             </article>
           </li>
+
           <li>
             <article class="card">
               <p class="sale-badge">Hot Sale</p>
@@ -227,6 +271,7 @@
                 <img
                   src="./assets/card-image-5.jpeg"
                   alt="Bose QuietComfort Ultra Headphones"
+                  loading="lazy"
                   class="card-image" />
               </figure>
               <div class="content-container">
@@ -240,17 +285,24 @@
                   ></span>
                   +342
                 </p>
-                <h3 class="card-title">Bose QuietComfort Ultra</h3>
+                <a
+                  href="/products/bose-quietcomfort-ultra"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View product details for Bose QuietComfort Ultra (opens in a new tab)">
+                  <h3 class="card-title">Bose QuietComfort Ultra</h3>
+                </a>
                 <p class="price">
                   <span class="current-price"
                     ><data value="379.00">$379.00</data></span
                   >
                   <span class="old-price"><s>$429.00</s></span>
                 </p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart btn">Add to Cart</button>
               </div>
             </article>
           </li>
+
           <li>
             <article class="card">
               <p class="sale-badge">Hot Sale</p>
@@ -258,6 +310,7 @@
                 <img
                   src="./assets/card-image-6.jpeg"
                   alt="Beats Studio Pro Wireless"
+                  loading="lazy"
                   class="card-image" />
               </figure>
               <div class="content-container">
@@ -271,14 +324,20 @@
                   ></span>
                   +189
                 </p>
-                <h3 class="card-title">Beats Studio Pro</h3>
+                <a
+                  href="/products/beats-studio-pro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View product details for Beats Studio Pro (opens in a new tab)">
+                  <h3 class="card-title">Beats Studio Pro</h3>
+                </a>
                 <p class="price">
                   <span class="current-price"
                     ><data value="249.99">$249.99</data></span
                   >
                   <span class="old-price"><s>$349.99</s></span>
                 </p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart btn">Add to Cart</button>
               </div>
             </article>
           </li>
@@ -289,7 +348,7 @@
         <p class="special-offers-subheadline">
           Get up to 40% off selected smartwatches and fitness trackers.
         </p>
-        <button class="explore-btn">Explore Deals</button>
+        <button class="explore-btn btn">Explore Deals</button>
       </section>
       <section id="newsletter-section">
         <h2 class="newsletter-headline">Never Miss a Drop</h2>
@@ -301,13 +360,14 @@
           action="https://www.voltix.com/subscribe"
           class="newsletter-sign"
           method="post">
+          <label for="email" class="sr-only">Email address</label>
           <input
             type="email"
             name="email"
             id="email"
             placeholder="Enter your email address..."
             required />
-          <input type="submit" value="Subscribe" class="subscribe-btn" />
+          <input type="submit" value="Subscribe" class="subscribe-btn btn" />
         </form>
       </section>
     </main>
@@ -318,26 +378,50 @@
           <p>Powering the next generation of creators</p>
         </div>
         <div class="footer-shop">
-          <ul class="nav-links links-footer">
-            <li><a href="#">Laptops</a></li>
-            <li><a href="#">Audio</a></li>
-            <li><a href="#">Wearables</a></li>
-            <li><a href="#">Accessories</a></li>
-          </ul>
+          <nav class="footer-shop" aria-label="Footer Shop Navigation">
+            <ul class="nav-links links-footer">
+              <li><a href="#">Laptops</a></li>
+              <li><a href="#">Audio</a></li>
+              <li><a href="#">Wearables</a></li>
+              <li><a href="#">Accessories</a></li>
+            </ul>
+          </nav>
         </div>
         <div class="footer-support">
-          <ul class="nav-links links-footer">
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Shipping Policy</a></li>
-            <li><a href="#">Returns</a></li>
-            <li><a href="#">FAQ</a></li>
-          </ul>
+          <nav class="footer-support" aria-label="Footer Support Navigation">
+            <ul class="nav-links links-footer">
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Shipping Policy</a></li>
+              <li><a href="#">Returns</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </nav>
         </div>
         <div class="footer-subscribe">
-          <i class="fa-brands fa-x-twitter nav-icon"></i>
-          <i class="fa-brands fa-facebook-f nav-icon"></i>
-          <i class="fa-brands fa-youtube nav-icon"></i>
-          <i class="fa-brands fa-instagram nav-icon"></i>
+          <a
+            href="https://www.x.com/voltix"
+            class="social-link"
+            aria-label="Visit our X profile">
+            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+          </a>
+          <a
+            href="https://www.facebook.com/voltix"
+            class="social-link"
+            aria-label="Visit our Facebook page">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a
+            href="https://www.youtube.com/voltix"
+            class="social-link"
+            aria-label="Visit our YouTube channel">
+            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/voltix"
+            class="social-link"
+            aria-label="Visit our Instagram profile">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
         </div>
       </div>
       <div class="bottom-row">
