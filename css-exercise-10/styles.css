@@ -41,6 +41,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   background-color: var(--bg-main);
+  overflow-x: hidden; /* FIX: Prevents horizontal scrolling on the body */
 }
 
 a {
@@ -56,6 +57,11 @@ header {
   width: 100%;
   z-index: 100;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  transition: background-color 0.4s ease;
+}
+
+header.nav-scrolled {
+  background-color: var(--bg-main);
 }
 
 #navbar {
@@ -68,11 +74,13 @@ header {
 .left-side {
   display: flex;
   gap: 1.5rem;
+  align-items: center; /* FIX: Added alignment for logo and links */
 }
 
 .logo-text {
   color: var(--brand-primary);
   font-weight: bold;
+  font-size: 1.5rem; /* FIX: Made logo slightly larger */
 }
 
 .nav-links {
@@ -89,6 +97,16 @@ header {
   gap: 1.5rem;
 }
 
+.nav-links a,
+.right-side a {
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.right-side a:hover {
+  color: var(--text-dark);
+}
+
 /*Hero section*/
 
 #hero-section::before {
@@ -96,9 +114,9 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%; /* Covers the left side where the text lives */
+  width: 50%;
   height: 100%;
-  z-index: 2; /* Sits between the image (1) and the content (3) */
+  z-index: 2;
   background: linear-gradient(to right, rgba(20, 20, 20, 0.9), transparent);
 }
 
@@ -116,6 +134,7 @@ header {
 }
 
 #hero-section::after {
+  content: ""; /* FIX: Added missing content property so the gradient renders */
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -150,14 +169,23 @@ header {
   line-height: 1.4;
 }
 
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 .cta-buttons button {
   line-height: 1;
   font-size: 1.125rem;
   font-weight: 600;
   border: none;
-  border-radius: 99px;
+  border-radius: 4px; /* FIX: Netflix buttons are usually slightly rounded rectangles, not pills */
   padding: 0.75rem 1.5rem;
   cursor: pointer;
+  display: flex; /* FIX: Align icons with text */
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .play-btn {
@@ -166,7 +194,12 @@ header {
 }
 
 .more-info-btn {
-  background-color: var(--bg-overlay);
+  background-color: rgba(
+    109,
+    109,
+    110,
+    0.7
+  ); /* FIX: Matched standard Netflix gray overlay */
   color: var(--text-primary);
 }
 
@@ -182,17 +215,25 @@ header {
 }
 
 .more-info-btn:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(109, 109, 110, 0.4);
 }
 
 /*Movie Rows Section*/
 #movie-rows {
-  padding: 1rem 4%;
+  padding: 1rem 0; /* FIX: Removed side padding here so cards can bleed to the edges */
+  position: relative;
+  z-index: 5;
+  margin-top: -100px; /* FIX: Pulls the rows up slightly over the hero gradient fade */
+}
+
+.movie-category {
+  margin-bottom: 2rem;
 }
 
 .category-title {
   display: block;
   margin-bottom: 10px;
+  padding-left: 4%; /* FIX: Added padding back to the title only */
   color: var(--text-primary);
   font-size: clamp(1.125rem, 3vw, 1.5rem);
   font-weight: 700;
@@ -204,7 +245,7 @@ header {
   gap: 0.5rem;
   overflow-x: auto;
   overflow-y: hidden;
-  padding-block: 40px;
+  padding: 40px 4%; /* FIX: Added vertical padding so scaled hover cards don't get clipped top/bottom */
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
 }
@@ -219,17 +260,34 @@ header {
   scroll-snap-align: start;
 }
 
+.movie-card:hover {
+  z-index: 10;
+}
+
+/* FIX: Ensure the first and last cards don't clip off the screen when scaled */
+.movie-card:first-child .movie-poster {
+  transform-origin: left center;
+}
+
+.movie-card:last-child .movie-poster {
+  transform-origin: right center;
+}
+
 .top-10-grid .movie-card {
-  padding-left: 3.5rem;
+  padding-left: 3rem; /* FIX: Slightly reduced to prevent number overlap */
   display: flex;
   align-items: center;
 }
 
 .top-10-grid .movie-card span {
   position: absolute;
-  bottom: 10px;
+  bottom: 0px; /* FIX: Adjusted to sit flush with the bottom */
   left: 0;
-  font-size: 7.5rem;
+  font-size: clamp(
+    6rem,
+    8vw,
+    8rem
+  ); /* FIX: Scaled the font size so 10 fits nicely */
   line-height: 0.8;
   font-weight: 900;
   color: black;
@@ -256,9 +314,12 @@ header {
 }
 
 .movie-poster:hover {
-  transform: scale(1.4);
+  transform: scale(
+    1.3
+  ); /* FIX: Reduced scale slightly to keep it manageable on smaller screens */
   z-index: 10;
   cursor: pointer;
+  border-radius: 4px;
 }
 
 /*footer section*/
@@ -273,12 +334,13 @@ footer {
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-bottom: 1.5rem;
-  text-align: center;
+  text-align: left; /* FIX: Standardized left alignment for footer links */
 }
 
 .content-links {
   color: var(--text-dark);
   transition: color 0.3s ease;
+  font-size: 0.875rem; /* FIX: Made footer links slightly smaller */
 }
 
 .content-links:hover {
@@ -286,8 +348,15 @@ footer {
 }
 
 .bottom-row {
-  text-align: center;
+  text-align: left;
   color: var(--text-dark);
+  font-size: 0.875rem;
+}
+
+/* --- GLOBAL ACCESSIBILITY --- */
+*:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 4px;
 }
 
 @media (max-width: 768px) {
@@ -303,13 +372,18 @@ footer {
   .top-row {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  #hero-section::before {
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(20, 20, 20, 0.9) 30%,
+      transparent
+    );
+  }
 }
 
 @media (max-width: 480px) {
-  .top-row {
-    grid-template-columns: 1fr;
-  }
-
   .cta-buttons button {
     padding: 0.5rem 1rem;
     font-size: 1rem;
