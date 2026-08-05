@@ -1,0 +1,32 @@
+:root {
+  --header-text-color: #303234;
+}
+
+/*Global resets*/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--header-color);
+}
+
+/*Hero section*/
+.top-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 1rem 0;
+}
+
+.nav-links {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  gap: 15px;
+}
