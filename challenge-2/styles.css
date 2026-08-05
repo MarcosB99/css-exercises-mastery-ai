@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+:root {
+  --deep-background: #0b0f19;
+  --primary-action: #238636;
+  --accent-glow-gradient: #7952ff;
+  --primary-text-logo: #ffffff;
+  --secondary-text: #8b949e;
+  --input-surface: #f0f6fc;
+  --secondary-button: #d0d7d3;
+}
+
+/*Global resets*/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Mona Sans";
+  font-size: 16px;
+  color: var(--primary-text-logo);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-text-logo);
+}
+
+a:hover {
+  color: var(--secondary-text);
+}
+
+ul {
+  list-style-type: none;
+}
+
+header {
+  padding: 1rem 1.5rem;
+}
+
+button {
+  background-color: transparent;
+  color: var(--primary-text-logo);
+  padding: 0.3rem 1rem;
+  border: 1px solid var(--input-surface);
+  border-radius: 4px;
+}
+
+body {
+  background-color: var(--deep-background);
+  background-image: radial-gradient(
+    circle at bottom center,
+    rgba(121, 82, 255, 0.35) 0%,
+    rgba(121, 82, 255, 0.1) 35%,
+    rgba(11, 15, 25, 0) 70%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/*Header section*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-btn:hover {
+  border: 1px solid #ffffff;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+.left-side,
+.right-side {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+.sign-up-btn {
+  border: 1px solid var(--input-surface);
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+}
+
+.sign-up-btn:hover {
+  border: 1px solid var(--secondary-text);
+}
+
+/*Hero Section*/
+.hero-section {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.headline {
+  font-size: 4rem;
+  font-weight: 400;
+  text-align: center;
+  width: 65%;
+}
+
+.description {
+  font-weight: 300;
+  text-align: center;
+  width: 50%;
+}
+
+.newsletter-form {
+  background-color: rgba(139, 148, 158, 0.7);
+  height: auto;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+input[type="email"] {
+  background-color: transparent;
+  border: none;
+}
+
+input[type="email"]::placeholder {
+  color: var(--primary-text-logo);
+  opacity: 1;
+}
+
+input[type="submit"] {
+  background-color: var(--primary-action);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+  background-color: #238610;
+  cursor: pointer;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.try-btn:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1280px) {
+  .search-text {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+}
