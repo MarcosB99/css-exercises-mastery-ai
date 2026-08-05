@@ -12,20 +12,17 @@
   --accent-glow-gradient: #7952ff;
   --primary-text-logo: #ffffff;
   --secondary-text: #8b949e;
-  --input-surface: #f0f6fc;
+  --input-surface: #ffffff; /* FIX: Adjusted to pure white to match reference image */
   --secondary-button: #d0d7d3;
 }
 
-/*Global resets*/
+/* FIX: Removed font-size and color from universal selector to preserve inheritance */
 *,
 *::after,
 *::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Mona Sans";
-  font-size: 16px;
-  color: var(--primary-text-logo);
 }
 
 .sr-only {
@@ -40,9 +37,26 @@
   border: 0 !important;
 }
 
+/* FIX: Moved base typography to the body tag */
+body {
+  font-family: "Mona Sans", sans-serif;
+  font-size: 16px;
+  color: var(--primary-text-logo);
+  background-color: var(--deep-background);
+  background-image: radial-gradient(
+    circle at bottom center,
+    rgba(121, 82, 255, 0.35) 0%,
+    rgba(121, 82, 255, 0.1) 35%,
+    rgba(11, 15, 25, 0) 70%
+  );
+  position: relative;
+  overflow-x: hidden;
+}
+
 a {
   text-decoration: none;
   color: var(--primary-text-logo);
+  font-weight: 600;
 }
 
 a:hover {
@@ -60,27 +74,24 @@ header {
 button {
   background-color: transparent;
   color: var(--primary-text-logo);
-  padding: 0.3rem 1rem;
-  border: 1px solid var(--input-surface);
-  border-radius: 4px;
-}
-
-body {
-  background-color: var(--deep-background);
-  background-image: radial-gradient(
-    circle at bottom center,
-    rgba(121, 82, 255, 0.35) 0%,
-    rgba(121, 82, 255, 0.1) 35%,
-    rgba(11, 15, 25, 0) 70%
-  );
-  position: relative;
-  overflow: hidden;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--secondary-text);
+  border-radius: 6px;
 }
 
 /*Header section*/
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .search-btn:hover {
@@ -89,7 +100,7 @@ body {
 }
 
 .icon {
-  font-size: 1.5rem;
+  font-size: 2rem; /* FIX: Scaled up the logo slightly */
 }
 
 .left-side,
@@ -97,18 +108,19 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 1.5rem; /* FIX: Increased gap for better breathing room */
 }
 
 .nav-links {
   display: flex;
-  gap: 10px;
+  gap: 1.25rem;
 }
 
 .sign-up-btn {
   border: 1px solid var(--input-surface);
-  padding: 0.3rem 1rem;
-  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
 }
 
 .sign-up-btn:hover {
@@ -118,63 +130,97 @@ body {
 /*Hero Section*/
 .hero-section {
   display: flex;
-  min-height: 100vh;
+  /* FIX: Subtract approximate header height to prevent scrolling */
+  min-height: calc(100vh - 80px);
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
+  padding-bottom: 10vh; /* Pushes content slightly up from bottom */
 }
 
 .headline {
-  font-size: 4rem;
-  font-weight: 400;
+  font-size: 5rem;
+  font-weight: 500;
   text-align: center;
-  width: 65%;
+  width: 100%;
+  max-width: 800px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
 }
 
 .description {
-  font-weight: 300;
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: var(--secondary-text);
   text-align: center;
-  width: 50%;
+  width: 100%;
+  max-width: 650px;
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
+/* FIX: Redesigned the newsletter form to match the white pill shape from the image */
 .newsletter-form {
-  background-color: rgba(139, 148, 158, 0.7);
-  height: auto;
-  padding: 0.5rem;
-  border-radius: 4px;
+  background-color: var(--input-surface);
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  padding-left: 1rem;
+  border-radius: 8px;
+  width: 350px;
 }
 
 input[type="email"] {
   background-color: transparent;
   border: none;
+  flex: 1;
+  color: var(--deep-background); /* Dark text for light background */
+  font-size: 1rem;
+}
+
+input[type="email"]:focus {
+  outline: none;
 }
 
 input[type="email"]::placeholder {
-  color: var(--primary-text-logo);
+  color: #6e7781;
   opacity: 1;
 }
 
 input[type="submit"] {
   background-color: var(--primary-action);
+  color: var(--primary-text-logo);
+  font-weight: 600;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
 }
 
 input[type="submit"]:hover {
-  background-color: #238610;
+  background-color: #2ea043;
   cursor: pointer;
 }
 
 .cta-buttons {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
+  gap: 15px;
+}
+
+.try-btn {
+  padding: 0.7rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: border-color 0.2s ease;
 }
 
 .try-btn:hover {
   cursor: pointer;
+  border-color: var(--secondary-text);
 }
 
 @media (max-width: 1280px) {
@@ -186,5 +232,21 @@ input[type="submit"]:hover {
 @media (max-width: 900px) {
   .nav-links {
     display: none;
+  }
+
+  .headline {
+    font-size: 3.5rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .newsletter-form,
+  .try-btn {
+    width: 90%;
+    max-width: 350px;
   }
 }
