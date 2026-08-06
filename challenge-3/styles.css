@@ -1,5 +1,27 @@
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src:
+    local("SF Pro Display"),
+    url(./fonts/sf-pro-display_regular.woff2) format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --header-text-color: #303234;
+  --main-canva: #f5f5f7;
+  --surface-light: #ffffff;
+  --surface-dark: #000000;
+  --primary-text: #1d1d1f;
+  --secondary-text: #86868b;
+  --link-accent: #0066cc;
+  --tag-accent: #bf4800;
 }
 
 /*Global resets*/
@@ -11,22 +33,124 @@
   padding: 0;
 }
 
-a {
-  text-decoration: none;
-  color: var(--header-color);
+html {
+  font-family: "SF Pro Display", sans-serif;
 }
 
-/*Hero section*/
-.top-row {
+a {
+  text-decoration: none;
+}
+
+/*Header section*/
+.header {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.header a {
+  color: var(--primary-text);
+}
+
+.header a.link {
+  color: var(--link-accent);
+}
+
+.top-row {
+  gap: 35px;
+  background-color: var(--main-canva);
 }
 
 .nav-links {
-  display: flex;
   list-style-type: none;
-  justify-content: center;
-  gap: 15px;
+  gap: 35px;
+}
+
+.bottom-row {
+  gap: 150px;
+  padding: 1rem 0;
+}
+
+/*Hero Section*/
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem 5%;
+  background-color: var(--main-canva);
+}
+
+.left-side {
+  display: flex;
+  align-items: end;
+}
+
+.headline {
+  font-size: 5rem;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+.sub-headline {
+  font-weight: 600;
+  text-align: right;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 10px;
+}
+
+.categories-grid {
+  padding: 2.5rem 5%;
+  background-color: var(--main-canva);
+}
+
+.categories-grid ul {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.categories-grid ul::-webkit-scrollbar {
+  display: none;
+}
+
+.categories-grid li {
+  flex: 0 0 auto;
+  width: 200px;
+  position: relative;
+  scroll-snap-align: start;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.categories-links {
+  list-style-type: none;
+  scroll-snap-type: x mandatory;
+}
+
+.categories-links a {
+  color: var(--primary-text);
+}
+
+.category-image {
+  max-width: 200px;
+  padding: 1rem;
+  margin: 0;
+}
+
+.trending-section {
+  padding: 2.5rem 5%;
+}
+
+.gray {
+  color: var(--secondary-text);
 }
