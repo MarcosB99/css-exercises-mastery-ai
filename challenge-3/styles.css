@@ -30,17 +30,27 @@ a {
 .global-nav {
   width: 100%;
   height: 44px;
-  background-color: var(--nav-bg);
+  /* Make the background translucent */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Add the Apple frosted glass blur */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed; /* Fix to top so the blur effect works when scrolling */
+  top: 0;
+  z-index: 9999;
 }
 
 .nav-list {
   display: flex;
   list-style: none;
-  gap: 2rem;
   align-items: center;
+  justify-content: space-between; /* Spread items evenly */
+  width: 100%;
+  max-width: 1000px; /* Standard Apple content width */
+  padding: 0 1rem;
 }
 
 .nav-link {
@@ -64,7 +74,7 @@ a {
   align-items: center;
   text-align: center;
   width: 100%;
-  padding-top: 3.5rem;
+  padding-top: 6rem;
 }
 
 .hero-content {
@@ -101,9 +111,11 @@ a {
   font-size: 17px;
   font-weight: 400;
   border-radius: 999px;
+  /* Faster transition for a more tactile feel */
   transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .btn-primary {
